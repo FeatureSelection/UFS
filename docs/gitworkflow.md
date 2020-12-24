@@ -8,10 +8,28 @@
 
 ## Common Git commands
 
-* Get a copy of a repository
+* Clone a repository
 
 ```bash
 git clone <repository URL>
+```
+
+* Create a new (feature) branch (off the current branch)
+
+```bash
+git checkout -b <initials/feature/name_of_feature>
+```
+
+* Initial push of a new branch to the remote repository
+
+```bash
+git push -u origin <initials/feature/name_of_feature>
+```
+
+* Repository status
+
+```
+git status
 ```
 
 * Commit changes (1)
@@ -27,17 +45,6 @@ git add <file name(s)>
 git commit -m 'Short, imperative comment'
 ```
 
-* Create a new (feature) branch (off the current branch)
-
-```bash
-git checkout -b <initials/feature/name_of_feature>
-```
-
-* Initial push of a new branch to the remote repository
-
-```bash
-git push -u origin <initials/feature/name_of_feature>
-```
 
 * Subsequent pushes to the remote repository
 
@@ -51,11 +58,13 @@ git push
 git checkout <name of branch>
 ```
 
-* Merge changes from the `master` branch of the remote repository into the a feature branch.  This should **always** be done prior to a **push** to pick up new commits
+* Merge changes from the `main` branch of the remote repository into
+  the a feature branch.  This should **always** be done prior to a
+  **push** to pick up new commits
 
 ```bash
-git checkout master
+git checkout main
 git pull
 git checkout <initials/feature/name_of_feature>
-git merge master
+git merge main
 ```
