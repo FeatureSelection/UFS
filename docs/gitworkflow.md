@@ -26,6 +26,18 @@ git checkout -b <initials/feature/name_of_feature>
 git push -u origin <initials/feature/name_of_feature>
 ```
 
+* Move to an existing branch
+
+```bash
+git checkout <name of branch>
+```
+
+* Identify branch
+
+```
+git branch
+```
+
 * Repository status
 
 ```
@@ -50,12 +62,6 @@ git commit -m 'Short, imperative comment'
 
 ```bash
 git push
-```
-
-* Move to an existing branch
-
-```bash
-git checkout <name of branch>
 ```
 
 * Merge changes from the `main` branch of the remote repository into
