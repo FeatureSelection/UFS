@@ -3,16 +3,18 @@
 # A systematic evaluation of filter Unsupervised Feature Selection methods
 # SaúlSolorio-Fernández J.Ariel Carrasco-OchoaJosé Fco.Martínez-Trinidad
 
+#TODO: Create docker container and jupyter notebook
+
 library(data.table)
 library(ggplot2)
 
 # Tables 19 and 20
-dtr <- read.csv("/home/venus/Downloads/DSUFS75-time.csv",sep=',')
+dtr <- read.csv("./data/DSUFS75-time.csv",sep=',')
 
 dtr <- as.data.table(dtr)
 
 # Tables 1 and 2
-dtz <- read.table("/home/venus/Downloads/DSUFS75-size.csv",sep=',',header=TRUE)
+dtz <- read.table("./data/DSUFS75-size.csv",sep=',',header=TRUE)
 dtz <- as.data.table(dtz)
 
 # Converting from wide to long format
