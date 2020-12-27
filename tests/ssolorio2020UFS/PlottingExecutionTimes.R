@@ -1,8 +1,7 @@
-# Plotting algorithm running time  from
+# Plotting algorithm running times from
 
 # A systematic evaluation of filter Unsupervised Feature Selection methods
-# Author links open overlay panelSaúlSolorio-Fernández
-# J.Ariel Carrasco-OchoaJosé Fco.Martínez-Trinidad
+# SaúlSolorio-Fernández J.Ariel Carrasco-OchoaJosé Fco.Martínez-Trinidad
 
 library(data.table)
 library(ggplot2)
@@ -22,13 +21,15 @@ ldtr <- melt(dtr, id.vars = c("Dataset"), variable.name = "method",value.name = 
 setkey(ldtr,Dataset)
 setkey(dtz,Dataset)
 
-# Mergind tables
+# Merging tables
 # https://rstudio-pubs-static.s3.amazonaws.com/52230_5ae0d25125b544caab32f75f0360e775.html
 ldtr <- dtz[ldtr]
 
 # http://zevross.com/blog/2019/04/02/easy-multi-panel-plots-in-r-using-facet_wrap-and-facet_grid-from-ggplot2/
-ggplot(ldtr,aes(x=N_of_Features,y=rtime)) + geom_point() + 
+p <- ggplot(ldtr,aes(x=N_of_Features,y=rtime)) + geom_point() + 
   stat_smooth(method=lm,se=F,lwd=1.2,fullrange=T)+theme_bw() +
   facet_wrap(~method)
 
-
+# Vertical rotation of x axis text
+p <- p + theme(axis.text.x = element_text(angle = 45))
+p
