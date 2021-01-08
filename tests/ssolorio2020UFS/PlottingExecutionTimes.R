@@ -30,7 +30,7 @@ ldtr <- dtz[ldtr]
 # http://zevross.com/blog/2019/04/02/easy-multi-panel-plots-in-r-using-facet_wrap-and-facet_grid-from-ggplot2/
 p <- ggplot(ldtr,aes(x=N_of_Features,y=rtime)) + geom_point() + 
   stat_smooth(method=lm,se=F,lwd=1.2,fullrange=T)+theme_bw() +
-  facet_wrap(~method)
+  facet_wrap(~method, scales = "free")
 
 # Vertical rotation of x axis text
 p <- p + theme(axis.text.x = element_text(angle = 45))
