@@ -1,0 +1,9 @@
+###### Required Python libraries ######
+
+
+###### Required R libraries ######
+r-subselect
+r-leaps==3.1
+
+###### jupyter ######
+rise
