@@ -15,7 +15,8 @@ Youl could also [Install Docker Desktop on Windows
 Home](https://docs.docker.com/docker-for-windows/install-windows-home/)
 you will need WSL2 anyway.
 
-Installing docker on a VM it is also possible bit it will be slower the above options
+Installing docker on a VM it is also possible bit it will be slower
+than the above options
 
 ## Docker
 
