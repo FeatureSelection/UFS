@@ -9,19 +9,19 @@ Subsystem for Linux
 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (WSL2)
 and then to install Docker as in a [Linux
 installation](https://docs.docker.com/engine/install/). For example,
-[Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+[Ubuntu](https://docs.docker.com/engine/install/ubuntu/).
 
-Youl could also [Install Docker Desktop on Windows
+You could also [Install Docker Desktop on Windows
 Home](https://docs.docker.com/docker-for-windows/install-windows-home/)
-you will need WSL2 anyway.
+but you will need WSL2 anyway.
 
-Installing docker on a VM it is also possible bit it will be slower
-than the above options
+Installing docker on a VM it is also possible but it will be slower
+than the above options.
 
 ## Docker
 
 This docker file uses the 'datascience_notebook' from [Docker
-Stacks](https://github.com/jupyter/docker-stacks)
+Stacks](https://github.com/jupyter/docker-stacks).
 
 ### Building the image
 
@@ -36,7 +36,7 @@ docker build --rm -t jupyter/ufs .
 ### Running the container
 
 ```
-docker run --name UFS --rm -p 8888:8888 -v "$PWD"/src/:/home/jovyan/work  jupyter/UFS
+docker run --name UFS --rm -p 8888:8888 -v "$PWD"/src/:/home/jovyan/work  jupyter/ufs
 ```
 
 - `--name UFS` name of the container. You can give any name you like.  
