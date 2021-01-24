@@ -131,8 +131,8 @@ def kmeans_initialization(X, n_clusters):
 
     n_samples, n_features = X.shape
     kmeans = sklearn.cluster.KMeans(n_clusters=n_clusters, init='k-means++', n_init=10, max_iter=300,
-                                    tol=0.0001, precompute_distances=True, verbose=0,
-                                    random_state=None, copy_x=True, n_jobs=1)
+                                    tol=0.0001, verbose=0,
+                                    random_state=None, copy_x=True)
     kmeans.fit(X)
     labels = kmeans.labels_
     Y = np.zeros((n_samples, n_clusters))
