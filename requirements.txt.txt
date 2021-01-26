@@ -1,0 +1,16 @@
+###### Required Python libraries ######
+# Note: Most libraries are installed as a dependency of scikit-learn
+# Note: These libraries do not include scikit-feature itself, this must be install through setup.py
+
+joblib==1.0.0
+numpy==1.19.5
+scikit-learn==0.24.1
+scipy==1.6.0
+threadpoolctl==2.1.0
+
+###### Required R libraries ######
+r-subselect
+r-leaps==3.1
+
+###### jupyter ######
+rise
