@@ -9,13 +9,20 @@ RUN conda install -c conda-forge --yes --file /tmp/requirements.txt && \
 # Create a Python 2.x environment using conda including at least the ipython kernel
 # and the kernda utility. Add any additional packages you want available for use
 # in a Python 2 notebook to the first line here (e.g., pandas, matplotlib, etc.)
+
 RUN conda create --quiet --yes -p $CONDA_DIR/envs/python2 python=2.7 ipython ipykernel kernda numpy scikit-learn==0.20.4 && \
 	conda clean --all -f -y
 
 # Install scikit-feature which does not have a pip or conda package at the moment
 WORKDIR /tmp
-RUN git clone https://github.com/jundongl/scikit-feature.git && \
+COPY ./changed_files/* /tmp/changed_files/
+RUN ls -l /tmp/changed_files/NDFS.py && \
+	whoami &&\
+	git clone https://github.com/jundongl/scikit-feature.git && \
 	cd ./scikit-feature/ && \
+	cp ../changed_files/NDFS.py ./skfeature/function/sparse_learning_based/ && \
+	cp ../changed_files/unsupervised_evaluation.py ./skfeature/utility/ && \
+	cp ../changed_files/test* ./skfeature/example/ && \
 	python setup.py install
 
 # https://pythonspeed.com/articles/activate-conda-dockerfile/
