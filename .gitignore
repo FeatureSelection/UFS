@@ -219,3 +219,7 @@ docs/
 
 # translation temp files
 po/*~
+
+
+# mat files
+*.mat
