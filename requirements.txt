@@ -1,5 +1,27 @@
 ###### Required Python libraries ######
+# Note: Most libraries are installed as a dependency of scikit-learn
+# Note: These libraries do not include scikit-feature itself, this must be install manuallly 
+#	through setup.py in the package itself. Make sure to add the changed files. 
+	
 
+astroid==2.4.2
+colorama==0.4.4
+isort==5.7.0
+joblib==1.0.0
+lazy-object-proxy==1.4.3
+mccabe==0.6.1
+numpy==1.19.5
+packaging==20.8
+pip-review==1.1.0
+pylint==2.6.0
+pyparsing==2.4.7
+scikit-learn==0.24.0
+scipy==1.6.0
+six==1.15.0
+skfeature==1.0.0
+threadpoolctl==2.1.0
+toml==0.10.2
+wrapt==1.12.1
 
 ###### Required R libraries ######
 r-subselect
