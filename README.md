@@ -1,5 +1,14 @@
 # UFS
 
-Teun's branch to commit changes to. 
+Teun's branch.
 
-First I uploaded the whole of scikit-feature package forked from Jundongl. Afterwards, I commit changes to the package to make it suitable for the most recent versions of sklearn, scipy, etc. as of January 2021. 
+To run the experiment, change the files in scikit-feature as stated in the changed_files folder.
+In that folder you also find the directories of the files so it's easier to implement. 
+Note: it is easiest to first change the files and then install scikit-feature through the 
+command 'python setup.py install'. 
+
+After that, download the datasets available in the google drive and put them in the data folder. 
+The data folder can be found in the experiment_files folder. 
+
+The requirements are available in the requirements.txt file. 
+A docker container can be made with these requirements. 
