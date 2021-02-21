@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="dataGenerationbuttonGroup">
+    </Component>
+    <Component class="java.awt.Label" name="label1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="label1"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="featuresjPanel" max="32767" attributes="0"/>
+                  <Component id="dataGenerationjPanel" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jPanel3" max="32767" attributes="0"/>
+                  <Component id="generaljPanel1" max="32767" attributes="0"/>
+                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="dataGenerationjPanel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="generaljPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="featuresjPanel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="featuresjPanel">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Features">
+              <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="numericaljPanel" max="32767" attributes="0"/>
+                      <Component id="nonNumericaljPanel" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                  <Component id="numericaljPanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="nonNumericaljPanel" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="numericaljPanel">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Numerical"/>
+              </Border>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="NumOfNumRelFjLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="numOfRedNumFjLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="numOfIrrelNumFjLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="numOfIrrelNumFjTextField" min="-2" pref="58" max="-2" attributes="0"/>
+                          <Component id="numOfRedNumFjTextField" min="-2" pref="58" max="-2" attributes="0"/>
+                          <Component id="numOfRelNumFjTextField" min="-2" pref="58" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="NumGeneratorjLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="numGenjComboBox" min="-2" pref="146" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="equalIntervaljLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="79" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="optionsNumGenjButton" max="32767" attributes="0"/>
+                          <Component id="equalIntervaljComboBox" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="NumOfNumRelFjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numOfRelNumFjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="numOfIrrelNumFjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="equalIntervaljLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="equalIntervaljComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numOfIrrelNumFjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="numOfRedNumFjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="NumGeneratorjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numOfRedNumFjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numGenjComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="optionsNumGenjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="NumOfNumRelFjLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Num. of Relevant:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="numOfIrrelNumFjLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Num. of Irrelevant:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="numOfRedNumFjLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Num. of Redundant:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="NumGeneratorjLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Generator:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="numOfRelNumFjTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="10"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numOfRelNumFjTextFieldKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="numGenjComboBox">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="1">
+                    <StringItem index="0" value="Linear Comb"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="numOfRedNumFjTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="20"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numOfRedNumFjTextFieldKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="optionsNumGenjButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Options..."/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="numOfIrrelNumFjTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="5"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numOfIrrelNumFjTextFieldKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="equalIntervaljLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Equal interval for irrelevant features:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="equalIntervaljComboBox">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="true"/>
+                    <StringItem index="1" value="false"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="equalIntervaljComboBoxActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="nonNumericaljPanel">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Non-Numerical"/>
+              </Border>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="numOfRelNomFjLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="numOfIrrelNomFjLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="numOfRedNomFjLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="numOfIrrelNomFjTextField" max="32767" attributes="0"/>
+                          <Component id="numOfRedNomFjTextField" pref="58" max="32767" attributes="0"/>
+                          <Component id="numOfRelNomFjTextField" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="redNomGenjLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="nomGenjComboBox" min="-2" pref="143" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="85" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="optionNomGenjButton" max="32767" attributes="0"/>
+                          <Component id="maxNumAllowedValuesjTextField" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="numOfRelNomFjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numOfRelNomFjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="maxNumAllowedValuesjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="numOfIrrelNomFjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numOfIrrelNomFjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="numOfRedNomFjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numOfRedNomFjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="redNomGenjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomGenjComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="optionNomGenjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="numOfRelNomFjLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Num. of Relevant:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="numOfIrrelNomFjLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Num. of Irrelevant:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="numOfRedNomFjLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Num. of Redundant:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="numOfRelNomFjTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="10"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numOfRelNomFjTextFieldKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="numOfIrrelNomFjTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="5"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numOfIrrelNomFjTextFieldKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="numOfRedNomFjTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="20"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numOfRedNomFjTextFieldKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="redNomGenjLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Generator:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Maximun number of allowed values:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="maxNumAllowedValuesjTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="5"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="maxNumAllowedValuesjTextFieldKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="nomGenjComboBox">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="Non-Matching-NG"/>
+                    <StringItem index="1" value="Mixed-NG"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="optionNomGenjButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Options..."/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="generaljPanel1">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="General">
+              <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="datasetNamejLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="numOfObjectsjLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="numOfClassesjLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="numOfClassesjTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="numOfObjectsjTextField" alignment="0" pref="67" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="numOfFeaturesjLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="classBalanceRatejLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="numOfFeaturesDisplayerjLabel" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="classBalanceRatejTextField" min="-2" pref="58" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="seedjLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="seedjTextField" min="-2" pref="67" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Component id="datasetNamejTextField" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="datasetNamejLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="datasetNamejTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="classBalanceRatejLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="classBalanceRatejTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="numOfClassesjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="numOfClassesjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="seedjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="seedjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="numOfObjectsjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="numOfObjectsjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="numOfFeaturesjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="numOfFeaturesDisplayerjLabel" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="datasetNamejLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Dataset name:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="numOfObjectsjLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Number of objects:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="numOfClassesjLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Num. of classes/clusters:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="seedjLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Seed:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="datasetNamejTextField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="numOfObjectsjTextField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="300"/>
+          </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numOfObjectsjTextFieldKeyTyped"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="numOfClassesjTextField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="2"/>
+          </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numOfClassesjTextFieldKeyTyped"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="seedjTextField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="1"/>
+          </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="seedjTextFieldKeyTyped"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="classBalanceRatejLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Class balance rate:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="classBalanceRatejTextField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="1.0"/>
+          </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="classBalanceRatejTextFieldKeyTyped"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="numOfFeaturesjLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Number of features:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="numOfFeaturesDisplayerjLabel">
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="dataGenerationjPanel">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Data Generation">
+              <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="newDatasetjRadioButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                  <Component id="fromExistingDatasetjRadioButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="loadDatasetjButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="statusjLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="statusTextjLabel" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="newDatasetjRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fromExistingDatasetjRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="loadDatasetjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="statusjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="statusTextjLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="loadDatasetjButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Load data..."/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loadDatasetjButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="newDatasetjRadioButton">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="dataGenerationbuttonGroup"/>
+            </Property>
+            <Property name="selected" type="boolean" value="true"/>
+            <Property name="text" type="java.lang.String" value="New dataset"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newDatasetjRadioButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="fromExistingDatasetjRadioButton">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="dataGenerationbuttonGroup"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="From existing dataset"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="fromExistingDatasetjRadioButtonMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fromExistingDatasetjRadioButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="statusTextjLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="None"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="statusjLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Status:"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel2">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Outputs">
+              <Font PropertyName="font" name="Tahoma" size="11" style="1"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="130" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="outputDirectoryjTextField" min="-2" pref="202" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="formatjLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="outputFormatjComboBox" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <Component id="histogramjButton" min="-2" pref="151" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="outputDirectoryjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="histogramjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="formatjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="outputFormatjComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="7" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Data Output Dir"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="outputDirectoryjTextField">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="outputDirectoryjTextFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="histogramjButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Feature Histograms"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="histogramjButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="formatjLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Format:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="outputFormatjComboBox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="ARFF"/>
+                <StringItem index="1" value="CSV"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel3">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="generateDatajButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="resetjButton" min="-2" pref="123" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="morejButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="203" max="32767" attributes="0"/>
+                  <Component id="closejButton" min="-2" pref="126" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="generateDatajButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="resetjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="morejButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="closejButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="generateDatajButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Generate data"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="generateDatajButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="resetjButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Reset"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetjButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="morejButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="More..."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="morejButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="closejButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Close"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closejButtonActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
