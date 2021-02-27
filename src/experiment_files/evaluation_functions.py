@@ -78,7 +78,14 @@ def eval_low_variance(X, y, num_cluster):
     start_time = time()
 
     p = 0.1    # specify the threshold p to be 0.1
-    # num_cluster = 20    # specify the number of clusters to be 20
+
+    """
+    perform feature selection and obtain the dataset on the selected features
+    The selected features work differently here. In other algorithms we select the best 
+    X number of features, whereas here we select with minimal variance which leads to 
+    differing number of feature selected. Might be an advantage for nmi and acc?
+    Not important for run time however. 
+    """
 
     # perform feature selection and obtain the dataset on the selected features
     selected_features = low_variance.low_variance_feature_selection(X, p*(1-p))
