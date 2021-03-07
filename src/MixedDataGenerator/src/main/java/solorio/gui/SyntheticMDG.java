@@ -16,7 +16,7 @@ public class SyntheticMDG {
         FlatLightLaf.install();
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(675, 650);
+        frame.setSize(680, 650);     
         frame.setTitle("Mixed Data Generator");
         MixedDataGeneratorJPanel mdgJpanel = new MixedDataGeneratorJPanel(frame);
         
