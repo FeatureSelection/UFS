@@ -1,0 +1,503 @@
+{
+    "low_variance": {
+        "small_synthetic_data/DS400x800.mat": {
+            "nmi": 0.005350492158122549,
+            "acc": 0.37187500000000007,
+            "run_time": 0.003167390823364258
+        },
+        "small_synthetic_data/DS600x400.mat": {
+            "nmi": 0.05756258781776343,
+            "acc": 0.32491666666666663,
+            "run_time": 0.004018068313598633
+        },
+        "small_synthetic_data/DS800x600.mat": {
+            "nmi": 0.1287433797039799,
+            "acc": 0.11956249999999999,
+            "run_time": 0.003630399703979492
+        },
+        "small_synthetic_data/DS800x200.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS600x600.mat": {
+            "nmi": 0.025093303939816347,
+            "acc": 0.26625000000000004,
+            "run_time": 0.00547337532043457
+        },
+        "small_synthetic_data/DS200x600.mat": {
+            "nmi": 0.4329504120565161,
+            "acc": 0.23200000000000004,
+            "run_time": 0.0017817020416259766
+        },
+        "small_synthetic_data/DS200x800.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS200x400.mat": {
+            "nmi": 0.08630142591629311,
+            "acc": 0.25975000000000004,
+            "run_time": 0.0010988712310791016
+        },
+        "small_synthetic_data/DS600x200.mat": {
+            "nmi": 0.20694260811726414,
+            "acc": 0.44575000000000004,
+            "run_time": 0.0013055801391601562
+        },
+        "small_synthetic_data/DS800x800.mat": {
+            "nmi": 0.030724456745227946,
+            "acc": 0.1713125,
+            "run_time": 0.0058400630950927734
+        },
+        "small_synthetic_data/DS600x800.mat": {
+            "nmi": 0.04717166385944265,
+            "acc": 0.16099999999999998,
+            "run_time": 0.007692575454711914
+        },
+        "small_synthetic_data/DS800x400.mat": {
+            "nmi": 0.23430734937978856,
+            "acc": 0.3948125,
+            "run_time": 0.002294301986694336
+        },
+        "small_synthetic_data/DS400x600.mat": {
+            "nmi": 0.08103628856018767,
+            "acc": 0.17099999999999999,
+            "run_time": 0.0030524730682373047
+        },
+        "small_synthetic_data/DS200x200.mat": {
+            "nmi": 0.44510255842087804,
+            "acc": 0.2415,
+            "run_time": 0.00078582763671875
+        },
+        "small_synthetic_data/DS400x400.mat": {
+            "nmi": 0.04031426460486738,
+            "acc": 0.255125,
+            "run_time": 0.0014142990112304688
+        },
+        "small_synthetic_data/DS400x200.mat": {
+            "nmi": 0.0009827002157431091,
+            "acc": 0.518375,
+            "run_time": 0.0011119842529296875
+        }
+    },
+    "lap_score": {
+        "small_synthetic_data/DS400x800.mat": {
+            "nmi": 0.007323097973488397,
+            "acc": 0.37712499999999993,
+            "run_time": 0.03514814376831055
+        },
+        "small_synthetic_data/DS600x400.mat": {
+            "nmi": 0.07481359586697803,
+            "acc": 0.33533333333333337,
+            "run_time": 0.06950855255126953
+        },
+        "small_synthetic_data/DS800x600.mat": {
+            "nmi": 0.13049295506043523,
+            "acc": 0.11581250000000003,
+            "run_time": 0.09161806106567383
+        },
+        "small_synthetic_data/DS800x200.mat": {
+            "nmi": 0.07349846277106178,
+            "acc": 0.25393750000000004,
+            "run_time": 0.08125710487365723
+        },
+        "small_synthetic_data/DS600x600.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS200x600.mat": {
+            "nmi": 0.45143964105992795,
+            "acc": 0.22524999999999995,
+            "run_time": 0.011148929595947266
+        },
+        "small_synthetic_data/DS200x800.mat": {
+            "nmi": 0.19248885715710845,
+            "acc": 0.19875,
+            "run_time": 0.010033130645751953
+        },
+        "small_synthetic_data/DS200x400.mat": {
+            "nmi": 0.068266259212557,
+            "acc": 0.25250000000000006,
+            "run_time": 0.009551763534545898
+        },
+        "small_synthetic_data/DS600x200.mat": {
+            "nmi": 0.1909362909733972,
+            "acc": 0.4221666666666667,
+            "run_time": 0.07696986198425293
+        },
+        "small_synthetic_data/DS800x800.mat": {
+            "nmi": 0.02731286683126675,
+            "acc": 0.170125,
+            "run_time": 0.12254714965820312
+        },
+        "small_synthetic_data/DS600x800.mat": {
+            "nmi": 0.03977746772777986,
+            "acc": 0.1531666666666667,
+            "run_time": 0.058164119720458984
+        },
+        "small_synthetic_data/DS800x400.mat": {
+            "nmi": 0.0856861438137976,
+            "acc": 0.21312499999999995,
+            "run_time": 0.10911798477172852
+        },
+        "small_synthetic_data/DS400x600.mat": {
+            "nmi": 0.08430200977047785,
+            "acc": 0.174625,
+            "run_time": 0.033151865005493164
+        },
+        "small_synthetic_data/DS200x200.mat": {
+            "nmi": 0.4321937867850633,
+            "acc": 0.22875,
+            "run_time": 0.008864641189575195
+        },
+        "small_synthetic_data/DS400x400.mat": {
+            "nmi": 0.03267106521067825,
+            "acc": 0.23787499999999998,
+            "run_time": 0.0233154296875
+        },
+        "small_synthetic_data/DS400x200.mat": {
+            "nmi": 0.0008445615973426956,
+            "acc": 0.5158750000000001,
+            "run_time": 0.028403282165527344
+        }
+    },
+    "MCFS": {
+        "small_synthetic_data/DS400x800.mat": {
+            "nmi": 0.004574306511418267,
+            "acc": 0.36350000000000005,
+            "run_time": 0.8658475875854492
+        },
+        "small_synthetic_data/DS600x400.mat": {
+            "nmi": 0.024345718390734895,
+            "acc": 0.26025000000000004,
+            "run_time": 1.5002646446228027
+        },
+        "small_synthetic_data/DS800x600.mat": {
+            "nmi": 0.12670264246902968,
+            "acc": 0.11681250000000001,
+            "run_time": 1.4407289028167725
+        },
+        "small_synthetic_data/DS800x200.mat": {
+            "nmi": 0.10441074856773783,
+            "acc": 0.2626875,
+            "run_time": 1.0994741916656494
+        },
+        "small_synthetic_data/DS600x600.mat": {
+            "nmi": 0.020420191764703888,
+            "acc": 0.25708333333333333,
+            "run_time": 1.0951430797576904
+        },
+        "small_synthetic_data/DS200x600.mat": {
+            "nmi": 0.4525494849518198,
+            "acc": 0.22325000000000003,
+            "run_time": 0.7742218971252441
+        },
+        "small_synthetic_data/DS200x800.mat": {
+            "nmi": 0.19128969627409684,
+            "acc": 0.196,
+            "run_time": 0.6860220432281494
+        },
+        "small_synthetic_data/DS200x400.mat": {
+            "nmi": 0.07183608822787217,
+            "acc": 0.24925000000000003,
+            "run_time": 0.912078857421875
+        },
+        "small_synthetic_data/DS600x200.mat": {
+            "nmi": 0.19954868549777077,
+            "acc": 0.44200000000000006,
+            "run_time": 1.0710434913635254
+        },
+        "small_synthetic_data/DS800x800.mat": {
+            "nmi": 0.024606966745139465,
+            "acc": 0.16549999999999998,
+            "run_time": 1.9439241886138916
+        },
+        "small_synthetic_data/DS600x800.mat": {
+            "nmi": 0.04190143460737904,
+            "acc": 0.15424999999999997,
+            "run_time": 1.106736660003662
+        },
+        "small_synthetic_data/DS800x400.mat": {
+            "nmi": 0.11083217078129004,
+            "acc": 0.24312499999999998,
+            "run_time": 1.7723352909088135
+        },
+        "small_synthetic_data/DS400x600.mat": {
+            "nmi": 0.08750558267315382,
+            "acc": 0.17225,
+            "run_time": 2.0807745456695557
+        },
+        "small_synthetic_data/DS200x200.mat": {
+            "nmi": 0.44414804212891834,
+            "acc": 0.2415,
+            "run_time": 0.7638123035430908
+        },
+        "small_synthetic_data/DS400x400.mat": {
+            "nmi": 0.016604000278699557,
+            "acc": 0.22012500000000004,
+            "run_time": 0.6919305324554443
+        },
+        "small_synthetic_data/DS400x200.mat": {
+            "nmi": 0.0014151109871395314,
+            "acc": 0.5225000000000002,
+            "run_time": 2.3076186180114746
+        }
+    },
+    "NDFS": {
+        "small_synthetic_data/DS400x800.mat": {
+            "nmi": 0.0035192119462403525,
+            "acc": 0.35950000000000004,
+            "run_time": 2.1281964778900146
+        },
+        "small_synthetic_data/DS600x400.mat": {
+            "nmi": 0.007822167682363075,
+            "acc": 0.2391666666666667,
+            "run_time": 2.0294275283813477
+        },
+        "small_synthetic_data/DS800x600.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS800x200.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS600x600.mat": {
+            "nmi": 0.007611405195946219,
+            "acc": 0.23641666666666666,
+            "run_time": 3.091428279876709
+        },
+        "small_synthetic_data/DS200x600.mat": {
+            "nmi": 0.42545353491938914,
+            "acc": 0.2085,
+            "run_time": 1.6467714309692383
+        },
+        "small_synthetic_data/DS200x800.mat": {
+            "nmi": 0.1910539706177185,
+            "acc": 0.19425,
+            "run_time": 1.3543643951416016
+        },
+        "small_synthetic_data/DS200x400.mat": {
+            "nmi": 0.05979052487873027,
+            "acc": 0.23224999999999998,
+            "run_time": 0.5323123931884766
+        },
+        "small_synthetic_data/DS600x200.mat": {
+            "nmi": 0.06904273729108304,
+            "acc": 0.32666666666666666,
+            "run_time": 1.4511382579803467
+        },
+        "small_synthetic_data/DS800x800.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS600x800.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS800x400.mat": {
+            "nmi": 0.022979747853831504,
+            "acc": 0.14943749999999997,
+            "run_time": 2.6380763053894043
+        },
+        "small_synthetic_data/DS400x600.mat": {
+            "nmi": 0.07316012254890489,
+            "acc": 0.15812500000000002,
+            "run_time": 1.4195592403411865
+        },
+        "small_synthetic_data/DS200x200.mat": {
+            "nmi": 0.45042734777706706,
+            "acc": 0.24150000000000005,
+            "run_time": 0.2830352783203125
+        },
+        "small_synthetic_data/DS400x400.mat": {
+            "nmi": 0.01927144267733526,
+            "acc": 0.221875,
+            "run_time": 1.0098929405212402
+        },
+        "small_synthetic_data/DS400x200.mat": {
+            "nmi": 0.00026986027147711544,
+            "acc": 0.5095,
+            "run_time": 0.6452884674072266
+        }
+    },
+    "SPEC": {
+        "small_synthetic_data/DS400x800.mat": {
+            "nmi": 0.011652184861955833,
+            "acc": 0.38225000000000003,
+            "run_time": 0.6660218238830566
+        },
+        "small_synthetic_data/DS600x400.mat": {
+            "nmi": 0.030585703862697645,
+            "acc": 0.29008333333333336,
+            "run_time": 0.4610772132873535
+        },
+        "small_synthetic_data/DS800x600.mat": {
+            "nmi": 0.1283048869883026,
+            "acc": 0.11737499999999998,
+            "run_time": 0.916269063949585
+        },
+        "small_synthetic_data/DS800x200.mat": {
+            "nmi": 0.06336237764224628,
+            "acc": 0.2300625,
+            "run_time": 0.45685768127441406
+        },
+        "small_synthetic_data/DS600x600.mat": {
+            "nmi": 0.019566234911939935,
+            "acc": 0.2544166666666667,
+            "run_time": 0.8077008724212646
+        },
+        "small_synthetic_data/DS200x600.mat": {
+            "nmi": 0.44810324572021204,
+            "acc": 0.22325000000000003,
+            "run_time": 1.3068327903747559
+        },
+        "small_synthetic_data/DS200x800.mat": {
+            "nmi": 0.1818844861213113,
+            "acc": 0.18675000000000003,
+            "run_time": 0.12306785583496094
+        },
+        "small_synthetic_data/DS200x400.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS600x200.mat": {
+            "nmi": 0.127633898034631,
+            "acc": 0.36983333333333335,
+            "run_time": 0.18237042427062988
+        },
+        "small_synthetic_data/DS800x800.mat": {
+            "nmi": 0.024541678292847764,
+            "acc": 0.1628125,
+            "run_time": 1.5183701515197754
+        },
+        "small_synthetic_data/DS600x800.mat": {
+            "nmi": 0.038998373003134475,
+            "acc": 0.1545,
+            "run_time": 0.8994979858398438
+        },
+        "small_synthetic_data/DS800x400.mat": {
+            "nmi": 0.12060343591068541,
+            "acc": 0.2715,
+            "run_time": 0.638329029083252
+        },
+        "small_synthetic_data/DS400x600.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS200x200.mat": {
+            "nmi": 0.44695013648391413,
+            "acc": 0.23975000000000005,
+            "run_time": 0.0426638126373291
+        },
+        "small_synthetic_data/DS400x400.mat": {
+            "nmi": 0.043761997422227285,
+            "acc": 0.25549999999999995,
+            "run_time": 2.4807589054107666
+        },
+        "small_synthetic_data/DS400x200.mat": {
+            "nmi": 0.021096971199156846,
+            "acc": 0.576125,
+            "run_time": 0.17746877670288086
+        }
+    },
+    "UDFS": {
+        "small_synthetic_data/DS400x800.mat": {
+            "nmi": 0.0045430381730533305,
+            "acc": 0.37149999999999994,
+            "run_time": 3.5649659633636475
+        },
+        "small_synthetic_data/DS600x400.mat": {
+            "nmi": 0.05466970042631138,
+            "acc": 0.32366666666666666,
+            "run_time": 1.0411427021026611
+        },
+        "small_synthetic_data/DS800x600.mat": {
+            "nmi": 0.13447646871720093,
+            "acc": 0.11962499999999998,
+            "run_time": 2.2600951194763184
+        },
+        "small_synthetic_data/DS800x200.mat": {
+            "nmi": 0.10543548779149173,
+            "acc": 0.26175,
+            "run_time": 1.6342496871948242
+        },
+        "small_synthetic_data/DS600x600.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS200x600.mat": {
+            "nmi": 0.44716182518800374,
+            "acc": 0.22925,
+            "run_time": 0.6320977210998535
+        },
+        "small_synthetic_data/DS200x800.mat": {
+            "nmi": 0.18813953187202526,
+            "acc": 0.19450000000000003,
+            "run_time": 7.323544025421143
+        },
+        "small_synthetic_data/DS200x400.mat": {
+            "nmi": 0.08371550410316433,
+            "acc": 0.26375000000000004,
+            "run_time": 0.4772980213165283
+        },
+        "small_synthetic_data/DS600x200.mat": {
+            "nmi": 0.20816523619464014,
+            "acc": 0.44766666666666666,
+            "run_time": 0.570101261138916
+        },
+        "small_synthetic_data/DS800x800.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS600x800.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS800x400.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS400x600.mat": {
+            "nmi": 0.08344576827838326,
+            "acc": 0.171375,
+            "run_time": 0.8177015781402588
+        },
+        "small_synthetic_data/DS200x200.mat": {
+            "nmi": 0.44348650375229165,
+            "acc": 0.24225,
+            "run_time": 0.11400508880615234
+        },
+        "small_synthetic_data/DS400x400.mat": {
+            "nmi": null,
+            "acc": null,
+            "run_time": null
+        },
+        "small_synthetic_data/DS400x200.mat": {
+            "nmi": 0.0010398812042607662,
+            "acc": 0.5175,
+            "run_time": 0.5094385147094727
+        }
+    },
+    "num_features": 100,
+    "W_kwargs": {
+        "metric": "euclidean",
+        "neighborMode": "knn",
+        "weightMode": "heatKernel",
+        "k": 5,
+        "t": 1
+    },
+    "max_run_time": 30
+}
