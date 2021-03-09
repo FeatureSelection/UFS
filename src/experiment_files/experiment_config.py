@@ -10,20 +10,6 @@ ISSUES:
 
     Might not be too relevant however, since we focus on run time not on acc and nmi. 
 
-- Still get this error at times: 
-    linear_model/_least_angle.py:615:
-     ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 39 iterations,
-     i.e. alpha=2.326e-06, with an active set of 35 regressors, and the smallest cholesky pivot element
-     being 2.980e-08. Reduce max_iter or increase eps parameters.
-
-    It is in MCFS.py, which refers again to linear model/_least_angle.py
-    see https://github.com/scikit-learn/scikit-learn/blob/0fb307bf39bbdacd6ed713c00724f8f871d60370/sklearn/linear_model/_least_angle.py
-
-    Comparable acc and nmi results, but run time is a bit different. Discuss with Saul and Venus
-
-- Maybe also evaluate using expectation maximization 
-    potentially do this, but does not have high priority
-
 """
 
 # importing necessary tools
@@ -65,11 +51,16 @@ max_run_time = 30
 
 def main():
     # list of a couple random datasets to evaluate
-    datasets = ['data/COIL20.mat', 'data/Isolet.mat', 'data/Yale.mat', 'data/ORL.mat']
+    # datasets = ['data/COIL20.mat', 'data/Isolet.mat', 'data/Yale.mat', 'data/ORL.mat']
 
-    # lines below are to run datatsets in directories
+    """ The lines below are to run datatsets in directories
+
+    os.listdir generates an unordered list of all the files, the endswith make sure
+    that only files with the .mat extension are kept. 
+    """
     # datasets = ['data/'+ str(f)  for f in os.listdir('data')] 
-    # datasets = ['synthetic_data/'+ str(f) for f in os.listdir('synthetic_data')]
+    # datasets = ['synthetic_data/'+ str(f) for f in os.listdir('synthetic_data') if f.endswith('.mat')]
+    datasets = ['small_synthetic_data/'+ str(f) for f in os.listdir('small_synthetic_data') if f.endswith('.mat')]
 
     signal.signal(signal.SIGALRM, handler)
     signal.alarm(max_run_time)
@@ -89,6 +80,7 @@ def main():
     results['max_run_time'] = max_run_time
 
     for dataset in datasets:
+        print('\n\nDataset:', str(dataset))
         mat = scipy.io.loadmat(dataset) # in .../scikit-feature-master/skfeature/data
         X = mat['X']    # data
         X = X.astype(float)
@@ -116,7 +108,8 @@ def main():
         except TookTooLong:     
             nmi, acc, run_time = None, None, None
 
-        # always add the nmi, acc and run time to the results dictionary     
+        # always add the nmi, acc and run time to the results dictionary  
+        # TODO: maybe change dataset name to not include the synthetic_data/ direcotry label    
         finally: 
             results['low_variance'].update({dataset:{'nmi':nmi, 'acc':acc, 'run_time':run_time}})
 
@@ -143,7 +136,7 @@ def main():
         finally:            results['UDFS'].update({dataset:{'nmi':nmi, 'acc':acc, 'run_time':run_time}})
 
     # convert dictionary to json file and save it 
-    with open('results/new_results.json', 'w') as fp:
+    with open('results/results_small_datasets_30sec.json', 'w') as fp:
         json.dump(results, fp, indent=4)
         print('\n\nWritten to json file.')
 

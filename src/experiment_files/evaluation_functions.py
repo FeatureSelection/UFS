@@ -1,3 +1,8 @@
+"""
+Script that contains the function with which the algorithms are analyzed. 
+Experiment_config.py import these functions to analyze datasets and collect data.
+"""
+
 # Often used imports
 from time import time
 

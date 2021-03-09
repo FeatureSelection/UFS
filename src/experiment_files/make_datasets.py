@@ -18,13 +18,15 @@ import json
 
 dataset_params = {}
 
-min_features = 50
-max_features = 10_000
+# the following parameters you can change yourself, with these
+# parameters I generated a few small test datasets
+min_features = 100
+max_features = 1000
 
-min_samples = 50
-max_samples = 10_000
+min_samples = 100
+max_samples = 1000
 
-step_size = 500
+step_size = 200
 
 for n_features in range(step_size, max_features, step_size):
     for n_samples in range(step_size, max_samples, step_size):
@@ -70,7 +72,7 @@ for n_features in range(step_size, max_features, step_size):
         # this must be done to allow analysis in experiment_config.py
         y = y[:, None]
 
-        scipy.io.savemat('synthetic_data/' + dataset_name +'.mat', {'X':X, 'Y':y})
+        scipy.io.savemat('small_synthetic_data/' + dataset_name +'.mat', {'X':X, 'Y':y})
         dataset_params[dataset_name] = {'n_samples':n_samples, 'n_features':n_features, 'n_informative':n_informative, 
                                     'n_redundant':n_redundant, 'n_repeated':n_repeated, 'n_classes':n_classes, 
                                     'n_clusters_per_class':n_clusters_per_class, 'flip_y':flip_y, 'class_sep':class_sep}
@@ -78,7 +80,7 @@ for n_features in range(step_size, max_features, step_size):
         X, y = None, None
 
 # convert dictionary to json file and save it 
-with open('results/dataset_params.json', 'w') as fp:
+with open('results/small_datasets_params.json', 'w') as fp:
     json.dump(dataset_params, fp, indent=4)
 
 print('Written to JSON file.')
