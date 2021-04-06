@@ -7,14 +7,17 @@ File that plots the results obtained in experiment_config.py
 import pandas as pd
 import matplotlib.pyplot as plt
 import re 
-from seaborn import set_theme
-set_theme() #sets a nice plotting style for all the plot in the script
+import json 
+import seaborn as sns
+# sets a nice plotting theme for all the plot in the script
+sns.set_theme() 
 
 # have fontdict for titles as global variable so they are the same for every plot 
 fontdict = {'family': 'serif',
         'color':  'k',
         'weight': 'normal',
         'size': 16}
+
 
 def plot_datasets(src='results/dataset_params.json'):
     """ 
@@ -34,67 +37,103 @@ def plot_datasets(src='results/dataset_params.json'):
     plt.ylabel('Number of features')
     fig.savefig("results/dataset_distribution.pdf", bbox_inches='tight') ## save high quality plot 
 
+def plot_run_times(X_values, algorithm, compare=False):
 
-def plot_run_times(src='results/results_small_datasets_30sec.json'):
     """
-    Function that plots the run times. 
+    Function that does unsupervised feature selection with laplacian score.
 
-    Takes in the path of a json file containing results generated
-    by experiment_config.py
+    PARAMS:
+    X_values: what you want the x-axis to represent. 
+        The options are features, objects and objects times features.
+        The latter you write as objects_x_features 
 
-    Returns nothing, but saves a pdf of a plot
+    algorithm: the algorithm you want analyzed. It automatically grabs the
+        right dataset. 
+
+    compare: to potentially compare another file with results
+        which were received with running it again in peregrine. 
+
+    ------------
+    Returns:
+
+    Nothing, but saves a pdf of the plot in the plots directory.
     """
+
+    src = f'results/{algorithm}_peregrine.json'
 
     # create a dataframe from a json file 
-    df = pd.read_json(src)
+    with open(src) as json_file:
+        data = json.load(json_file)
 
-    # remove the columns and rows that carry parameter information
-    df = df.drop(['num_features', 'W_kwargs', 'max_run_time'], axis=1) # coolumns
-    df = df.drop(['metric', 'k', 't', 'weightMode', 'neighborMode']) # rows
+            
+    runtimes = []
+    objects = []
+    features = []
+    objects_x_features = []
+    None_values = 0
+    None_datasets = []
 
-    # get a list of the column names
-    lissie = list(df)
+    print(algorithm, len(data[algorithm].items()))
+    
+    for key, value in data[algorithm].items():
 
-    for column_name in lissie:
-        """
-        Here, the dataframe still contains a dictionary for every element.
-        This dictionary contains the nmi, acc and run time. With the following line 
-        we extract the run time information and replac the dictionary with it 
-        """
-        df[column_name] = df[column_name].apply(get_run_time)
+        if value['run_time'] == None:
+            None_values += 1
+            None_datasets.append(key)
 
-    # get list with the size of the dataset (features * samples)
-    sizes = [] 
-    for dataset in df.index.values: # iterate over every row in dataframe
+        else:
+            split_values = re.split(r'(\d+)', key)
+            
+            objects.append(int(split_values[1]))
+            features.append(int(split_values[3]))
+            objects_x_features.append(int(split_values[1]) * int(split_values[3]))
+            
+            runtimes.append(float(value['run_time']))
 
-        # the line below splits letters and other characters from numbers
-        split_values = re.split(r'(\d+)', dataset) 
+    if compare:
+        src2 = f'results/{algorithm}_peregrine_first_try.json'
 
-        # multiply the samples (split_values[1]) with the features (split_values[3])
-        size = float(split_values[1]) * float(split_values[3]) 
+        with open(src2) as json_file:
+            data_compare = json.load(json_file)
 
-        sizes.append(int(size))
+        
+        runtimes_compare = []
+        for key, value in data_compare[algorithm].items():
+            #only runtimes are relevant, datasets are in same order
+            # seems to be true, but always be wary!
 
+            runtimes_compare.append(float(value['run_time']))
+
+    # get the desired values for the x axis:
+    # either features, objects, object_x_features
+    X = eval(X_values)
+    
     fig, ax = plt.subplots()
+    
+    ax.scatter(X, runtimes, c='b', s=15) 
+    if compare:
+        ax.scatter(X, runtimes_compare, c='orange', s=15)
+    ax.set_title(X_values)
 
-    # add the results per algorithm, so per column 
-    for column_name in list(df):
-        ax.scatter(x=sizes, y=df[column_name], label=column_name)
+    plt.title(f'Run time results {algorithm}', fontdict=fontdict)
+    plt.ylabel('Run times in seconds')
+    plt.xlabel(X_values)
+    
+    fig.tight_layout()
+    ## save high quality plot
+    if compare:
+        fig.savefig(f"plots/run_times_{algorithm}_{X_values}_comparison.pdf", bbox_inches='tight')  
+       
+    else:
+        fig.savefig(f"plots/run_times_{algorithm}_{X_values}.pdf", bbox_inches='tight')  
 
-    plt.title('Run time results', fontdict=fontdict)
-    plt.xlabel('features * samples')
-    plt.ylabel('Run time')
-    plt.legend()
-    fig.savefig("results/run_times.pdf", bbox_inches='tight') ## save high quality plot 
+    # print(f'{algorithm} had {None_values} None values with these datasets:\n {None_datasets}')
+    
+algos = 'lap_score', 'low_variance', 'SPEC', 'MCFS', 'NDFS', 'UDFS'
+options = 'objects', 'features', 'objects_x_features'
 
+for algorithm in algos:
+    for option in options:
+        plot_run_times(option, algorithm, compare=False)
 
-def get_run_time(dictionary):
-    """
-    Function that converts the dataframe elements in the results to only the run time result
-    """
-    return  dictionary['run_time']
-
-
-plot_run_times(src='results/results_small_datasets_30sec.json')
-
-plot_datasets(src='results/dataset_params.json')
+# plot_datasets(src='results/dataset_params.json')
