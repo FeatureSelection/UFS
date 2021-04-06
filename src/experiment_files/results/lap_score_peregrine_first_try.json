@@ -1,0 +1,589 @@
+{
+    "lap_score": {
+        "DS500x6500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.5682501792907715
+        },
+        "DS1500x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.6707472801208496
+        },
+        "DS1500x2000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.9498746395111084
+        },
+        "DS1000x4000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.805661678314209
+        },
+        "DS1000x5500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.0128374099731445
+        },
+        "DS5500x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 6.734819173812866
+        },
+        "DS500x1500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.09960818290710449
+        },
+        "DS9000x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 23.543272733688354
+        },
+        "DS1000x4500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.8579082489013672
+        },
+        "DS4500x1500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 7.174870252609253
+        },
+        "DS5000x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 7.136401653289795
+        },
+        "DS8500x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 16.39582633972168
+        },
+        "DS1000x6500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.1725552082061768
+        },
+        "DS2000x1500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.4210472106933594
+        },
+        "DS2000x2500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.945746898651123
+        },
+        "DS1500x3500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.4447007179260254
+        },
+        "DS3500x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 3.4763147830963135
+        },
+        "DS500x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.048781394958496094
+        },
+        "DS1000x7000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.2725377082824707
+        },
+        "DS2000x2000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.7008013725280762
+        },
+        "DS1000x9500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.6641600131988525
+        },
+        "DS7000x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 14.376365184783936
+        },
+        "DS3000x1500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 3.201961040496826
+        },
+        "DS4000x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 4.546267509460449
+        },
+        "DS7500x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 16.445305347442627
+        },
+        "DS1500x6500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 2.4945268630981445
+        },
+        "DS500x8000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.41855549812316895
+        },
+        "DS2000x3000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 2.277895927429199
+        },
+        "DS2500x3000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 3.54592227935791
+        },
+        "DS3000x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 2.556917428970337
+        },
+        "DS6500x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 9.448288679122925
+        },
+        "DS500x4500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.24344992637634277
+        },
+        "DS500x5000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.2767460346221924
+        },
+        "DS500x6000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.3075988292694092
+        },
+        "DS5000x1500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 8.72594928741455
+        },
+        "DS2000x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.8188085556030273
+        },
+        "DS1500x1500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.7868711948394775
+        },
+        "DS4500x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 4.443677186965942
+        },
+        "DS3000x3000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 4.929863214492798
+        },
+        "DS2000x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.0881552696228027
+        },
+        "DS1000x9000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.553351640701294
+        },
+        "DS6500x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 12.336997985839844
+        },
+        "DS500x7000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.3686230182647705
+        },
+        "DS500x2000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.14220547676086426
+        },
+        "DS5500x1500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 11.027897834777832
+        },
+        "DS5000x2000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 10.567126750946045
+        },
+        "DS500x7500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.36772680282592773
+        },
+        "DS500x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.06922364234924316
+        },
+        "DS500x2500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.1715991497039795
+        },
+        "DS4000x2000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 6.73644232749939
+        },
+        "DS500x3500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.21134257316589355
+        },
+        "DS500x3000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.1927809715270996
+        },
+        "DS2500x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.746406078338623
+        },
+        "DS6500x1500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 14.967199802398682
+        },
+        "DS6000x1500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 12.744351625442505
+        },
+        "DS500x5500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.28964924812316895
+        },
+        "DS2500x2500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 3.018362045288086
+        },
+        "DS3000x2500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 4.27654504776001
+        },
+        "DS3000x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.9367756843566895
+        },
+        "DS1000x3500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.6595654487609863
+        },
+        "DS2500x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.291830062866211
+        },
+        "DS1000x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.22612452507019043
+        },
+        "DS6000x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 10.304167985916138
+        },
+        "DS2000x5000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 3.3836348056793213
+        },
+        "DS1500x4500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.8068265914916992
+        },
+        "DS1000x2000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.44086527824401855
+        },
+        "DS1500x5500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 2.158273696899414
+        },
+        "DS1000x8500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.5007598400115967
+        },
+        "DS2000x3500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 2.575577735900879
+        },
+        "DS2500x3500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 3.9236388206481934
+        },
+        "DS1500x2500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.0844707489013672
+        },
+        "DS1500x6000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 2.3126442432403564
+        },
+        "DS4500x2000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 8.460161685943604
+        },
+        "DS3500x2500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 6.0206687450408936
+        },
+        "DS1500x5000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.9755220413208008
+        },
+        "DS500x8500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.4152693748474121
+        },
+        "DS1000x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.299602746963501
+        },
+        "DS500x9000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.480898380279541
+        },
+        "DS1000x6000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.044571876525879
+        },
+        "DS3500x1500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 4.3123509883880615
+        },
+        "DS1000x2500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.496321439743042
+        },
+        "DS2500x1500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 2.215872049331665
+        },
+        "DS3500x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 2.6439902782440186
+        },
+        "DS500x9500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.4893636703491211
+        },
+        "DS4000x1500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 5.6557416915893555
+        },
+        "DS10000x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 23.00043797492981
+        },
+        "DS1500x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.46230411529541016
+        },
+        "DS9000x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 18.45798110961914
+        },
+        "DS500x4000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.21481823921203613
+        },
+        "DS8000x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 14.5899817943573
+        },
+        "DS2500x4000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 4.422460079193115
+        },
+        "DS1000x8000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.448711633682251
+        },
+        "DS8000x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 18.70319700241089
+        },
+        "DS9500x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 26.72161364555359
+        },
+        "DS5500x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 8.7577805519104
+        },
+        "DS1000x3000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.6022913455963135
+        },
+        "DS2000x4000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 2.7669057846069336
+        },
+        "DS2000x4500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 3.1393351554870605
+        },
+        "DS1000x5000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.9629788398742676
+        },
+        "DS5000x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 5.542142391204834
+        },
+        "DS7500x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 12.805063247680664
+        },
+        "DS3000x2000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 3.8423409461975098
+        },
+        "DS1500x3000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.3154335021972656
+        },
+        "DS6000x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 8.068515539169312
+        },
+        "DS2500x2000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 2.6026692390441895
+        },
+        "DS1000x7500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.3489036560058594
+        },
+        "DS4000x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 3.5236566066741943
+        },
+        "DS1000x1500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 0.3617289066314697
+        },
+        "DS8500x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 21.145161390304565
+        },
+        "DS3500x2000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 5.245962142944336
+        },
+        "DS1500x4000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 1.560856580734253
+        },
+        "DS7000x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 10.916281938552856
+        },
+        "DS4000x2500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 7.532717943191528
+        },
+        "DS9500x500.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 19.66149353981018
+        },
+        "DS4500x1000.mat": {
+            "nmi": "lap_score",
+            "acc": "dataset",
+            "run_time": 5.538136959075928
+        }
+    },
+    "num_features": 100,
+    "W_kwargs": {
+        "metric": "euclidean",
+        "neighborMode": "knn",
+        "weightMode": "heatKernel",
+        "k": 5,
+        "t": 1
+    },
+    "max_run_time": 15000,
+    "max_global_time": 80000
+}
