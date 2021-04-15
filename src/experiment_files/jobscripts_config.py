@@ -53,10 +53,11 @@ def handler(signum, frame):
 
 After this time has passed, the analysis will stop and the results saved to a json file.
 
-For the experiment we have ten days: 24*60*60 = 86_400 seconds. 
-To be safe set it to 80_000 seconds. 
+For the experiment we have ten days: 10*24*60*60 = 864_000 seconds. 
+NOTE: this must be changed to match the #SBATCH --
+To be safe set it to 850_000 seconds. 
 """
-max_global_time = 80_000
+max_global_time = 850_000
 
 """  Set global variable for maximal run time per algorithm + dataset
 
@@ -65,8 +66,8 @@ This is the max run time an algorithm is allowed to analyze a certain dataset.
 The jobs for NDFS, UDFS and MCFS are split to last 10 days per five datasets.
 So with a max run_time of 15_000 seconds per combination it should be more than safe.
 """
-
-max_run_time = 15_000
+# because batches of three
+max_run_time = 300_000 
 
 def main():
     global_start_time = time()
@@ -85,7 +86,9 @@ def main():
     """ The lines below are to run datatsets in directories
 
     os.listdir generates an unordered list of all the files, the endswith make sure
-    that only files with the .mat extension are kept. 
+    that only files with the .mat extension are kept. When one job is submitted in which   
+    this script can be called with different arguments, it has the same order so every dataset
+    is analyzed. Further research is needed to figure how the randomizaiton works. 
     """
     # set the directory for the data to be analyzed
     data_directory = 'synthetic_data/'
@@ -93,7 +96,7 @@ def main():
     # os.listdir generates an unordered list of all the files, the endswith make sure
     # that only files with the .mat extension are appended to the list 
     datasets = [f for f in os.listdir(data_directory) if f.endswith('.mat')]
-    
+
     # potentially set limit to number of datasets with args passed to script
     datasets = datasets[int(idx_min):int(idx_min)+int(num_datasets)] 
 
@@ -129,8 +132,12 @@ def main():
 
         # load the dataset from the data_directory
         mat = scipy.io.loadmat(data_directory + dataset)
-        X = mat['X']    # data
-        X = X.astype(float)
+        X_raw = mat['X']    # data
+        X_raw = X_raw.astype(float)
+        
+        # standardize data according to Dy & Brodley (2004): mean = 0 and std = 1
+        X = (X_raw - X_raw.mean()) / X_raw.std()
+
         y = mat['Y']    # label
         y = y[:, 0]
 
@@ -174,7 +181,7 @@ def main():
     Warning: update causes the values in results are overwritten.
     """
 
-    filename = f'results/{algorithm}_peregrine.json'
+    filename = f'results/{algorithm}_standardized.json'
 
     if os.path.exists(filename):
         with open(filename, 'r') as f:
@@ -199,7 +206,6 @@ def main():
             json.dump(results, f, indent=4)
 
     print('\n\nWritten to json file.')
-
 
 
 if __name__ == '__main__':

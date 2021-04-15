@@ -75,7 +75,6 @@ def eval_lap_score(X, y, num_clusters, num_features, W_kwargs):
     return nmi, acc, run_time 
 
 
-
 from skfeature.function.statistical_based import low_variance
 
 def eval_low_variance(X, y, num_clusters, num_features, W_kwargs):
@@ -131,7 +130,6 @@ def eval_low_variance(X, y, num_clusters, num_features, W_kwargs):
 
     # line below is for multiprocessing to keep track of which combination the results describe
     # return 'low_variance', 'dataset', run_time
-
 
 
 
