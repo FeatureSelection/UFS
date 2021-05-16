@@ -40,13 +40,13 @@ class TookTooLong(Exception):
 
 def handler(signum, frame):
     """
-    Function that handles the signal thrown if max_run_time has been surpassed
+    Function that handles the signal thrown if max_runtime has been surpassed
     for one line. This one line will always be the execution of an algorithm on 
     a dataset.
 
     TODO: maybe handle Traceback in some way, unsure yet
     """
-    signal.alarm(max_run_time) # reset the alarm
+    signal.alarm(max_runtime) # reset the alarm
     raise TookTooLong
 
 """  Set global variable for max total run time.
@@ -64,10 +64,10 @@ max_global_time = 850_000
 This is the max run time an algorithm is allowed to analyze a certain dataset.
 
 The jobs for NDFS, UDFS and MCFS are split to last 10 days per five datasets.
-So with a max run_time of 15_000 seconds per combination it should be more than safe.
+So with a max runtime of 15_000 seconds per combination it should be more than safe.
 """
 # because batches of three
-max_run_time = 300_000 
+max_runtime = 850_000 
 
 def main():
     global_start_time = time()
@@ -91,18 +91,28 @@ def main():
     is analyzed. Further research is needed to figure how the randomizaiton works. 
     """
     # set the directory for the data to be analyzed
-    data_directory = 'synthetic_data/'
+    # data_directory = 'synthetic_data/'
+    data_directory = 'real_data/'
 
     # os.listdir generates an unordered list of all the files, the endswith make sure
     # that only files with the .mat extension are appended to the list 
     datasets = [f for f in os.listdir(data_directory) if f.endswith('.mat')]
 
-    # potentially set limit to number of datasets with args passed to script
-    datasets = datasets[int(idx_min):int(idx_min)+int(num_datasets)] 
+    if algorithm == 'UDFS':
+        datasets = ['GLI-85.mat']
 
-    # Set an alarm per line of code with the max_run_time variable defined before 
+    # potentially set limit to number of datasets with args passed to script
+    idx_min = int(idx_min)
+    if idx_min + int(num_datasets) <= len(datasets):
+        idx_max = idx_min + int(num_datasets)
+    else:
+        idx_max = len(datasets)
+
+    datasets = datasets[idx_min:idx_max] 
+
+    # Set an alarm per line of code with the max_runtime variable defined before 
     signal.signal(signal.SIGALRM, handler)
-    signal.alarm(max_run_time)
+    signal.alarm(max_runtime)
 
     # parameters for contruct_W function 
     W_kwargs = {"metric": "euclidean", "neighborMode": "knn", "weightMode": "heatKernel", "k": 5, 't': 1}
@@ -145,9 +155,9 @@ def main():
 
         """ Next section evaluates and stores the results for every algorithm
 
-        Here, if the eval function takes longer than the max_run_time (set in 
+        Here, if the eval function takes longer than the max_runtime (set in 
         just before defining main()), an TookTooLong exception will be thrown.
-        The results of nmi, acc, and run_time will be set to none and the script
+        The results of nmi, acc, and runtime will be set to none and the script
         will continue at the next line. 
         """
 
@@ -156,15 +166,15 @@ def main():
         try:     
             # construct a string with all the arguments that evaluated with built-in eval() function
 
-            nmi, acc, run_time = eval('eval_' + algorithm + '(X, y, num_clusters, num_features, W_kwargs)')
+            nmi, acc, runtime = eval('eval_' + algorithm + '(X, y, num_clusters, num_features, W_kwargs)')
 
         # if it takes too long (set in handler()), set None to all three outputs
         except TookTooLong:     
-            nmi, acc, run_time = None, None, None
+            nmi, acc, runtime = None, None, None
 
         # always add the nmi, acc and run time to the results dictionary  
         finally: 
-            results[algorithm].update({dataset:{'nmi':nmi, 'acc':acc, 'run_time':run_time}})
+            results[algorithm].update({dataset:{'nmi':nmi, 'acc':acc, 'runtime':runtime}})
 
 
     """
@@ -181,7 +191,7 @@ def main():
     Warning: update causes the values in results are overwritten.
     """
 
-    filename = f'results/{algorithm}_standardized.json'
+    filename = f'results/{algorithm}_real_world.json'
 
     if os.path.exists(filename):
         with open(filename, 'r') as f:
@@ -199,7 +209,7 @@ def main():
         # add parameters to later save to json file
         results['num_features'] = num_features
         results['W_kwargs'] = W_kwargs
-        results['max_run_time'] = max_run_time
+        results['max_runtime'] = max_runtime
         results['max_global_time'] = max_global_time
 
         with open(filename, 'w') as f:

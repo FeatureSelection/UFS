@@ -1,51 +1,43 @@
-""" 
 
-File that plots the results obtained in experiment_config.py
+""" This file makes the plots 
 
-It is a messy script, because it needs to be adapted too often to get the right 
-plots. Maybe in the end there'll be a version that's more neat. 
-
+NOTE: this cannot be run with matplotlib version < 3.4
+    In this case it cannnot be run in the container. 
 """
-
 import pandas as pd
-import matplotlib.cm as cm
 import matplotlib.pyplot as plt
-import re 
 import json 
 import numpy as np
 import seaborn as sns
 
 # sets a nice plotting theme for all the plot in the script
-sns.set_theme() 
+sns.set_style('whitegrid') 
 
 # have fontdict for titles as global variable so they are the same for every plot 
 fontdict = {'family': 'serif',
         'color':  'k',
         'weight': 'normal',
-        'size': 16}
+        'size': 22}
 
 
-def plot_datasets(src='results/dataset_params.json'):
-    """ 
-    Function that plots the distribution of the datasets.
-
-    It is put in a function so it does not run automatically
+def power_model(X, b1, b2, b3):
+    """ NOTE:
+    These functions have no intercept
     """
-
-    df = pd.read_json(src)
-    df = df.T # to switch the colums and rows, initially datasets were columns
-
-    fig, ax = plt.subplots()
-    ax.scatter(x=df['n_samples'], y=df['n_features'])
-
-    plt.title('Distribution of datasets in synthetic_data dir', fontdict=fontdict)
-    plt.xlabel('Number of samples')
-    plt.ylabel('Number of features')
-    fig.savefig("results/dataset_distribution.pdf", bbox_inches='tight') ## save high quality plot 
+    x1, x2 = X
+    return b1 * np.power(x1, b2) * np.power(x2, b3)
 
 
-def plot_run_times(X_axis, algorithm, compare=False, with_color=False):
-
+def exponential_linear(X, b1, b2, b3):
+    """ NOTE:
+    These functions have no intercept
+    """
+    x1, x2 = X
+    # return b1 * np.exp(b2 * x1) + b3 * x2
+    return b1 * np.exp(b2 * x1) * (b3 * x2)
+    
+def plot_synthetic(methods, X_axis):
+    
     """
     Function that does unsupervised feature selection with laplacian score.
 
@@ -54,7 +46,7 @@ def plot_run_times(X_axis, algorithm, compare=False, with_color=False):
         The options are features, objects and objects times features.
         The latter you write as objects_x_features 
 
-    algorithm: the algorithm you want analyzed. It automatically grabs the
+    method: the method you want analyzed. It automatically grabs the
         right dataset. 
 
     compare: to potentially compare another file with results
@@ -65,133 +57,106 @@ def plot_run_times(X_axis, algorithm, compare=False, with_color=False):
 
     Nothing, but saves a pdf of the plot in the plots directory.
     """
+    fig, axs = plt.subplots(3, 2, sharex=True, figsize=(8, 10))
 
-    src = f'results/{algorithm}_peregrine.json'
-    # src = f'results/{algorithm}_standardized.json'
+    with open('results/best_models.json', 'r') as fp:
+        best_models_params = json.load(fp)
 
-    # create a dataframe from a json file 
-    with open(src) as json_file:
-        data = json.load(json_file)
+    with open('results/synthetic_dataset_params.json', 'r') as fp:
+        synthetic_dataset_params = json.load(fp)
 
-            
-    runtimes = []
-    objects = []
-    features = []
-    objects_x_features = []
-    None_values = 0
-    None_datasets = []
-
-    # print(algorithm, len(data[algorithm].items()))
-    
-    for key, value in data[algorithm].items():
-
-        if value['run_time'] == None:
-            None_values += 1
-            None_datasets.append(key)
-
+    for ax, method in zip(axs.flat, methods):
+        print(method)
+        
+        if method == 'low_variance':
+            ax.set_title('Low Variance')
+        elif method == 'lap_score':
+            ax.set_title('Laplacian Score')
         else:
-            split_values = re.split(r'(\d+)', key)
-            
-            objects.append(int(split_values[1]))
-            features.append(int(split_values[3]))
-            objects_x_features.append(int(split_values[1]) * int(split_values[3]))
-            
-            runtimes.append(float(value['run_time']))
-
-    if compare:
-
-        runtimes_compare = []
-        objects_compare = []
-        features_compare = []
-        objects_x_features_compare = []
-        None_values_compare = 0
-        None_datasets_compare = []
-
-        src2 = f'results/{algorithm}_standardized.json'
-
-        with open(src2) as json_file:
-            data_compare = json.load(json_file)
+            ax.set_title(method)
         
+        src = f'results/synthetic_results/{method}_synthetic.json'
 
-        for key, value in data_compare[algorithm].items():
+        with open(src) as fp:
+            synthetic_runtimes = json.load(fp)
+
+        objects = [] 
+        features = []
+        true_runtimes = []  
+
+        # slow to do it here but is temporary fix for UDFS not having completed all analayses
+        for dataset, params in synthetic_runtimes[method].items():
+
+            true_runtimes.append(synthetic_runtimes[method][dataset]['runtime'])
+            objects.append(synthetic_dataset_params[dataset]['n_objects'])
+            features.append(synthetic_dataset_params[dataset]['n_features'])
+
+        objects = np.asarray(objects)
+        features = np.asarray(features)
+        true_runtimes = np.asarray(true_runtimes)
         
-            if value['run_time'] == None:
-                None_values_compare += 1
-                None_datasets_compare.append(key)
-
-            else:
-                split_values = re.split(r'(\d+)', key)
-                
-                objects_compare.append(int(split_values[1]))
-                features_compare.append(int(split_values[3]))
-                objects_x_features_compare.append(int(split_values[1]) * int(split_values[3]))
-                
-                runtimes_compare.append(float(value['run_time']))
-
-        X_compare = eval(X_axis+'_compare')
-    # get the desired values for the x axis:
-    # either features, objects, object_x_features
-    X = eval(X_axis)
-
-    colors = [] 
-    fig, ax = plt.subplots()
-
-    if with_color:
+        # print("true runtimes, objects, features length: ", len(true_runtimes), len(objects), len(features))
 
         if X_axis == 'objects':
-            c = cm.jet((features-np.min(features)) / (np.max(features)-np.min(features)))
-        
-        elif X_axis == 'features':
-            c = cm.jet((objects-np.min(objects)) / (np.max(objects)-np.min(objects)))
+            features_sizes = [0.5 * x / 100 for x in features]
+            ax.scatter(objects, true_runtimes, s=features_sizes, label='True runtimes')
+            # ax.scatter(objects, true_runtimes, s=10, label='True runtimes')
+            
+            if method in ['lap_score', 'SPEC', 'MCFS']:
+                X = (objects, features)
+                p_opt = best_models_params[method]['power_model']['betas']
+                # ax.scatter(objects, exponential_linear(X, *p_opt), s=features_sizes, c='orange', label='exponential_linear_objects prediction')
+                ax.scatter(objects, power_model(X, *p_opt), s=10, c='orange', marker='*', label='Power model prediction')
+                if method == 'lap_score':
+                    ax.legend()   
 
-        else: 
-            c = ['black'] * len(objects_x_features)
-    
-        for i, j, k in zip(X, runtimes, c):
-            ax.scatter(i, j, color=k, s=25, edgecolor='black') 
+        if X_axis == 'features':
+            objects_sizes = [0.5 * x / 100 for x in objects]
+            ax.scatter(features, true_runtimes, s=objects_sizes, label='True runtimes')
+            # ax.scatter(features, true_runtimes, s=10, label='True runtimes')
+            
+            if method in ['UDFS', 'NDFS']:
+                X = (objects, features)
+                
+                p_opt = best_models_params[method]['power_model']['betas']
+                ax.scatter(features, power_model(X, *p_opt), s=objects_sizes, c='orange', marker='*', label='Power model prediction')
 
+            if method == 'NDFS':
+                X = (features, objects)
+                p_opt = best_models_params[method]['exponential_linear_features']['betas']
+                # ax.scatter(features, exponential_linear(X, *p_opt), s=10, c='orange', label='EL prediction')
+                ax.scatter(features, exponential_linear(X, *p_opt), s=objects_sizes, c='red', marker='s', label='EL prediction')
+                ax.legend()              
+
+        elif X_axis == 'objects_x_features':
+
+            objects_x_features = objects * features 
+            ax.scatter(objects_x_features, true_runtimes, s=5, label='Runtimes')
+
+            if method == 'low_variance':
+
+                slope = best_models_params['low_variance']['slope']
+                ax.scatter(objects_x_features, slope * objects_x_features,
+                            c='orange', s=5, marker='X', label='Simple linear egression prediction')
+
+                X = (objects, features)
+                p_opt = best_models_params[method]['power_model']['betas']
+                ax.scatter(objects_x_features, power_model(X, *p_opt), s=5, c='red', label='Power prediction')
+                ax.legend()         
+
+
+    if X_axis == 'objects_x_features':
+        fig.supxlabel('Datapoints')
     else:
+        fig.supxlabel(X_axis[0].upper() + X_axis[1:])
 
-        ax.scatter(X, runtimes, c='blue', s=15, label=src)
-
-        if compare:
-            ax.scatter(X_compare, runtimes_compare, c='orange', s=15, label=src2)
-            plt.legend()
-
-    ax.set_title(X_axis)
-
-    plt.title(f'Run time results {algorithm}', fontdict=fontdict)
-    plt.ylabel('Run times in seconds')
-    plt.xlabel(X_axis)
-    
+    fig.supylabel('Runtime in seconds')
     fig.tight_layout()
 
-    ## save high quality plot
-    if compare:
-        fig.savefig(f"plots/with_scale/run_times_{algorithm}_{X_axis}_comparison_not_standardized.pdf", bbox_inches='tight')  
-       
-    else:
-        # fig.savefig(f"plots/with_scale/run_times_{algorithm}_{X_axis}_with_color.pdf", bbox_inches='tight')  
-        fig.savefig(f"plots/with_scale/run_times_{algorithm}_{X_axis}_not_standardized.pdf", bbox_inches='tight')   
+    # fig.savefig(f"good_plots/synthetic_and_best_predictions_{X_axis}.pdf", bbox_inches='tight') 
     plt.show()
 
-    # print(runtimes)
-    # print(runtimes_compare)
-    # print(f'{algorithm} had {None_values} None values with these datasets:\n {None_datasets}')
-    
-# algos = 'lap_score', 'low_variance', 'SPEC', 'MCFS', 'NDFS', 'UDFS'
-options = 'objects', 'features', 'objects_x_features'
-
-# for algorithm in algos:
-#     for option in options:
-#         plot_run_times(option, algorithm, compare=False)
-# for option in options:
-#     for algorithm in ['UDFS', 'NDFS']:
-#         plot_run_times(option, algorithm, compare=False, with_color=False)
-
-# plot_datasets(src='results/dataset_params.json')
-
-def plot_run_times_faucet(algorithms, X_axis):
+def real_world_plot(methods, X_axis):
     
     """
     Function that does unsupervised feature selection with laplacian score.
@@ -201,7 +166,7 @@ def plot_run_times_faucet(algorithms, X_axis):
         The options are features, objects and objects times features.
         The latter you write as objects_x_features 
 
-    algorithm: the algorithm you want analyzed. It automatically grabs the
+    method: the method you want analyzed. It automatically grabs the
         right dataset. 
 
     compare: to potentially compare another file with results
@@ -212,63 +177,137 @@ def plot_run_times_faucet(algorithms, X_axis):
 
     Nothing, but saves a pdf of the plot in the plots directory.
     """
-    fig, axs = plt.subplots(2, 3, sharex=True, figsize=(20, 10))
+    intercept = False
+    fig, axs = plt.subplots(3, 2, sharex=True, figsize=(8, 10))
 
-    for ax, algorithm in zip(axs.flat, algorithms):
+    with open('results/real_world_dataset_params.json', 'r') as fp:
+        real_world_dataset_params = json.load(fp)    
 
-            ax.set_title(algorithm)
-            
-            src = f'results/{algorithm}_peregrine.json'
-            # src = f'results/{algorithm}_standardized.json'
+    with open('results/best_models_with_power.json', 'r') as fp:
+        best_models_params = json.load(fp)
 
-            # create a dataframe from a json file 
-            with open(src) as json_file:
-                data = json.load(json_file)
-
-            runtimes = []
-            objects = []
-            features = []
-            objects_x_features = []
-            
-            for key, value in data[algorithm].items():
-
-                split_values = re.split(r'(\d+)', key)
-
-                objects.append(int(split_values[1]))
-                features.append(int(split_values[3]))
-                objects_x_features.append(int(split_values[1]) * int(split_values[3]))
-
-                runtimes.append(float(value['run_time']))
-
-
-             # get the desired values for the x axis:
-             # either features, objects, object_x_features
-            X = eval(X_axis)
-
-            if X_axis == 'objects':
-                features = [x / 100 for x in features]
-                ax.scatter(X, runtimes, s=features)
-
-
-            elif X_axis == 'features':
-                objects = [x / 100 for x in objects]
-                ax.scatter(X, runtimes, s=objects)
-
-            else:
-                ax.scatter(X, runtimes)
-
+    for ax, method in zip(axs.flat, methods):
         
-    fig.suptitle('Run time results', fontdict=fontdict)
-    fig.supxlabel(X_axis[0].upper() + X_axis[1:])
+        if method == 'low_variance':
+            ax.set_title('Low Variance')
+        elif method == 'lap_score':
+            ax.set_title('Laplacian Score')
+        else:
+            ax.set_title(method)
+        
+        src_real_world = f'results/real_world_results/{method}_real_world.json'
+
+        with open(src_real_world) as fp:
+            real_world_algo_data = json.load(fp)
+
+        objects = [] 
+        features = []
+        true_runtimes = []  
+
+        # same order because list is the same
+        # slow to do it here but is temp fix for UDFS not having completed all analayses
+
+        for dataset, params in real_world_dataset_params.items():
+            # the if statements allows filtering, see commetned out lines
+            # if dataset == 'gisette.mat':
+            #     continue
+            
+            # elif params['objects'] > 3000:
+            #     continue
+
+            # if params['features'] > 10000:
+            #     continue
+
+            try:
+                true_runtimes.append(real_world_algo_data[method][dataset]['runtime'])
+                objects.append(params['objects'])
+                features.append(params['features'])
+
+            except KeyError:
+                print(f"{method} has no results for {dataset}")
+
+        objects = np.asarray(objects)
+        features = np.asarray(features)
+        true_runtimes = np.asarray(true_runtimes)
+        
+        print("true runtimes length: ", len(true_runtimes))
+
+        if X_axis == 'objects':
+            features_sizes = [0.5 * x / 100 for x in features]
+            # ax.scatter(objects, true_runtimes, s=features_sizes, label='True runtimes')
+            ax.scatter(objects, true_runtimes, s=10, label='True runtimes')
+            
+            if method in ['low_variance', 'lap_score', 'SPEC', 'MCFS']:
+                X = (objects, features)
+                p_opt = best_models_params[method]['power_model']['betas']
+                # ax.scatter(objects, exponential_linear(X, *p_opt), s=features_sizes, c='orange', label='exponential_linear_objects prediction')
+                ax.scatter(objects, power_model(X, *p_opt), s=10, c='orange', label='Power function prediction')
+                if method == 'low_variance':
+                    ax.legend()   
+
+        if X_axis == 'features':
+            objects_sizes = [0.5 * x / 100 for x in objects]
+            # ax.scatter(objects, true_runtimes, s=features_sizes, label='True runtimes')
+            ax.scatter(features, true_runtimes, s=10, label='True runtimes')
+            
+            if method in ['UDFS', 'NDFS']:
+                # X = (features, objects)
+                # p_opt = best_models_params[method]['exponential_linear_features']['betas']
+                # # ax.scatter(objects, power_model(X, *p_opt), s=features_sizes, c='orange', label='exponential_linear_features prediction')
+                # ax.scatter(features, exponential_linear(X, *p_opt), s=10, c='orange', label='exponential_linear_features prediction')
+                # # ax.legend()  
+
+                # here it is (objects, features) because that's how parameters were defined is best models
+                X = (objects, features)
+                
+                p_opt = best_models_params[method]['power_model']['betas']
+                # ax.scatter(objects, exponential_linear(X, *p_opt), s=features_sizes, c='orange', label='exponential_linear prediction')
+                ax.scatter(features, power_model(X, *p_opt), s=10, c='red', label='Power prediction')
+                # ax.legend()                    
+
+        elif X_axis == 'objects_x_features':
+            # label won't get used if ax.legend() is not called so can leave it here
+            objects_x_features = objects * features 
+            ax.scatter(objects_x_features, true_runtimes, s=10, label='Runtimes')
+
+            if method == 'low_variance':
+                if intercept:
+                    y_intercept = best_models_params['low_variance']['y_intercept']
+                else: 
+                    y_intercept = 0
+
+                slope = best_models_params['low_variance']['slope']
+                sorted_arr = np.sort(objects_x_features)
+                ax.scatter(objects_x_features, y_intercept + slope * objects_x_features,
+                            c='orange', s=10, label='Linear Regression predicted')
+
+                X = (objects, features)
+                p_opt = best_models_params[method]['power_model']['betas']
+                # ax.scatter(objects, exponential_linear(X, *p_opt), s=features_sizes, c='orange', label='exponential_linear prediction')
+                ax.scatter(objects_x_features, power_model(X, *p_opt), s=10, c='red', label='Power prediction')
+                # ax.legend()         
+
+        # if method == 'lap_score':
+        #     handles, labels = ax.get_legend_handles_labels()
+        #     fig.legend(handles, labels)#, loc='upper left')
+        #     print(f'Handles: {handles} Labels: {labels}')
+
+    # fig.suptitle('Run time results', fontdict=fontdict)
+    if X_axis == 'objects_x_features':
+        fig.supxlabel('Datapoints')
+    else:
+        fig.supxlabel(X_axis[0].upper() + X_axis[1:])
     fig.supylabel('Runtime in seconds')
-
+    # fig.legend()
+    # legend_without_duplicate_labels(ax)
     fig.tight_layout()
-    fig.savefig(f"plots/good_plots/runtimes_bubble_faucet_{X_axis}.pdf", bbox_inches='tight')   
+    # if intercept:
+        # fig.savefig(f"good_plotssdsdsd/sdsdsreal_world_intercept{X_axis}.pdf", bbox_inches='tight')   
+    # else:
+    #     fig.savefig(f"good_plots/power_real_world_{X_axis}.pdf", bbox_inches='tight') 
+    plt.show()
 
-    # plt.show()
-
-    
-algos = 'lap_score', 'low_variance', 'SPEC', 'MCFS', 'NDFS', 'UDFS'
-
-plot_run_times_faucet(algos, 'features')
-plot_run_times_faucet(algos, 'objects')
+algos = ['low_variance', 'lap_score', 'SPEC', 'MCFS', 'UDFS', 'NDFS']
+plot_synthetic(algos, 'objects')
+plot_synthetic(algos, 'features')
+plot_synthetic(algos, 'objects_x_features')
