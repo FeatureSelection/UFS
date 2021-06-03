@@ -333,6 +333,11 @@ def best_models(methods):
             X = (features, objects)
             p_opt, p_cov = curve_fit(exponential_linear, X, runtimes, p0=[100, 0.001, 0.01], bounds=(0, np.inf), maxfev=5000)
             results['NDFS'].update({'exponential_linear_features':{'betas': p_opt.tolist() }})
+
+        elif method == 'UDFS':
+            X = (features, objects)
+            p_opt, p_cov = curve_fit(exponential_linear, X, runtimes, p0=[100, 0.001, 0.01], bounds=(0, np.inf), maxfev=5000)
+            results['UDFS'].update({'exponential_linear_features':{'betas': p_opt.tolist() }})
             
     # have STOP here to not accidentally overwrite file
     filename = 'results/best_models.json'
@@ -342,10 +347,40 @@ def best_models(methods):
         print('\n\nWritten to json file.')
     return 
 
+def real_world_scores(methods):
+    """ I think unused function. 
+    """
 
+    with open('results/real_world_dataset_params.json', 'r') as fp:
+        real_world_dataset_params = json.load(fp)   
+
+    with open('results/best_models.json', 'r') as fp:
+        best_models_params = json.load(fp)
+
+    results = {}
+
+    for method in methods:
+        
+        with open(f'results/real_world_results/{method}_real_world.json') as fp:
+            method_results = json.load(fp)[method]
+
+        runtimes = [] 
+        for dataset, outcome in method_results.items():
+            runtime = outcome['runtime']
+            if runtime == None:
+                print(f'{method} has no runtime value for {dataset}')
+                continue
+
+            runtimes.append(runtime)
+        
+        runtimes = np.asarray(runtimes)
+
+        
 methods = ['low_variance', 'lap_score', 'SPEC', 'MCFS', 'UDFS', 'NDFS']
 
 # model_evaluation(methods)
 
 best_models(methods)
+
+# real_world_scores(methods)
 

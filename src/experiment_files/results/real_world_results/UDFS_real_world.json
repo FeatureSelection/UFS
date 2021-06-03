@@ -141,9 +141,9 @@
             "runtime": 157422.62689113617
         },
         "GLI-85.mat": {
-            "nmi": 0,
-            "acc": 0,
-            "runtime": 0
+            "nmi": null,
+            "acc": null,
+            "runtime": 484025
         }
     },
     "num_features": 100,

@@ -3,13 +3,14 @@
 ISSUES:
 
 - Unsure what to do with the n of selected features, 
-    same for every algorithm?
+    same for every method?
     with a value for p in low_variance it's different for example
 
     See comments in evaluation_functions.py 
 
     Probably not too relevant however, since we focus on run time not on acc and nmi. 
-
+    Only has a minor influence on runtime most likely, judging by prediction accuracy 
+    and time complexities SPEC and MCFS 
 """
 
 # importing necessary tools
@@ -23,13 +24,13 @@ import os
 import signal 
 import sys
 
-# importing the functions in which the algorithms are evaluated 
+# importing the functions in which the methods are evaluated 
 from evaluation_functions_jobscripts import eval_lap_score, eval_low_variance, eval_MCFS, \
                                     eval_NDFS, eval_SPEC, eval_UDFS
 
 class TookTooLong(Exception):
     """
-    create a special exception for the combination of algorithm and dataset 
+    create a special exception for the combination of method and dataset 
     taking too much time.
 
     Does not take any arguments and has no output either. 
@@ -41,7 +42,7 @@ class TookTooLong(Exception):
 def handler(signum, frame):
     """
     Function that handles the signal thrown if max_runtime has been surpassed
-    for one line. This one line will always be the execution of an algorithm on 
+    for one line. This one line will always be the execution of an method on 
     a dataset.
 
     TODO: maybe handle Traceback in some way, unsure yet
@@ -59,25 +60,25 @@ To be safe set it to 850_000 seconds.
 """
 max_global_time = 850_000
 
-"""  Set global variable for maximal run time per algorithm + dataset
+"""  Set global variable for maximal run time per method + dataset
 
-This is the max run time an algorithm is allowed to analyze a certain dataset.
+This is the max run time an method is allowed to analyze a certain dataset.
 
 The jobs for NDFS, UDFS and MCFS are split to last 10 days per five datasets.
 So with a max runtime of 15_000 seconds per combination it should be more than safe.
 """
 # because batches of three
-max_runtime = 850_000 
+max_runtime = 300_000
 
 def main():
     global_start_time = time()
 
     print(f'\n---The parameters passed to python file: \n {sys.argv}')
     try: 
-        algorithm, idx_min, num_datasets = sys.argv[1:]
+        method, idx_min, num_datasets = sys.argv[1:]
     
     except ValueError as e:
-        print(f'\nPass parameters as follows: python script.py algorithm idx_min, idx_max \nPython Exception: ValueError: {e}')
+        print(f'\nPass parameters as follows: python script.py method idx_min, idx_max \nPython Exception: ValueError: {e}')
         return 
 
     # list of a couple random datasets to evaluate to quickly test things if needed.
@@ -91,15 +92,12 @@ def main():
     is analyzed. Further research is needed to figure how the randomizaiton works. 
     """
     # set the directory for the data to be analyzed
-    # data_directory = 'synthetic_data/'
-    data_directory = 'real_data/'
+    data_directory = 'synthetic_data/'
+    # data_directory = 'real_data/'
 
     # os.listdir generates an unordered list of all the files, the endswith make sure
     # that only files with the .mat extension are appended to the list 
     datasets = [f for f in os.listdir(data_directory) if f.endswith('.mat')]
-
-    if algorithm == 'UDFS':
-        datasets = ['GLI-85.mat']
 
     # potentially set limit to number of datasets with args passed to script
     idx_min = int(idx_min)
@@ -121,7 +119,7 @@ def main():
     num_features = 100
 
     # dictionary to store results 
-    results = {algorithm:{}}
+    results = {method:{}}
 
     for idx, dataset in enumerate(datasets):
 
@@ -153,7 +151,7 @@ def main():
 
         num_clusters = len(np.unique(y)) # n of classes in ground truth 
 
-        """ Next section evaluates and stores the results for every algorithm
+        """ Next section evaluates and stores the results for every method
 
         Here, if the eval function takes longer than the max_runtime (set in 
         just before defining main()), an TookTooLong exception will be thrown.
@@ -166,7 +164,7 @@ def main():
         try:     
             # construct a string with all the arguments that evaluated with built-in eval() function
 
-            nmi, acc, runtime = eval('eval_' + algorithm + '(X, y, num_clusters, num_features, W_kwargs)')
+            nmi, acc, runtime = eval('eval_' + method + '(X, y, num_clusters, num_features, W_kwargs)')
 
         # if it takes too long (set in handler()), set None to all three outputs
         except TookTooLong:     
@@ -174,7 +172,7 @@ def main():
 
         # always add the nmi, acc and run time to the results dictionary  
         finally: 
-            results[algorithm].update({dataset:{'nmi':nmi, 'acc':acc, 'runtime':runtime}})
+            results[method].update({dataset:{'nmi':nmi, 'acc':acc, 'runtime':runtime}})
 
 
     """
@@ -191,19 +189,20 @@ def main():
     Warning: update causes the values in results are overwritten.
     """
 
-    filename = f'results/{algorithm}_real_world.json'
+    # filename = f'results/{method}_real_world.json'   
+    filename = f'results/{method}_synthetic_confirm_outliers.json'
 
     if os.path.exists(filename):
-        with open(filename, 'r') as f:
-            data = json.load(f)
+        with open(filename, 'r') as fp:
+            data = json.load(fp)
 
         # add every newly analyzed dataset to the data
-        for key in results[algorithm].keys():
-            if key not in data[algorithm].keys():
-                data[algorithm][key] = results[algorithm][key]       
+        for key in results[method].keys():
+            if key not in data[method].keys():
+                data[method][key] = results[method][key]       
                 
-        with open(filename, 'w') as f:
-            json.dump(data, f, indent=4)
+        with open(filename, 'w') as fp:
+            json.dump(data, fp, indent=4)
 
     else:
         # add parameters to later save to json file
@@ -212,8 +211,8 @@ def main():
         results['max_runtime'] = max_runtime
         results['max_global_time'] = max_global_time
 
-        with open(filename, 'w') as f:
-            json.dump(results, f, indent=4)
+        with open(filename, 'w') as fp:
+            json.dump(results, fp, indent=4)
 
     print('\n\nWritten to json file.')
 
