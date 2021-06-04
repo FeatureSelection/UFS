@@ -1,0 +1,118 @@
+{
+    "arcene.mat": {
+        "objects": 200,
+        "features": 10000
+    },
+    "nci9.mat": {
+        "objects": 60,
+        "features": 9712
+    },
+    "leukemia.mat": {
+        "objects": 72,
+        "features": 7070
+    },
+    "USPS.mat": {
+        "objects": 9298,
+        "features": 256
+    },
+    "madelon.mat": {
+        "objects": 2600,
+        "features": 500
+    },
+    "gisette.mat": {
+        "objects": 7000,
+        "features": 5000
+    },
+    "Isolet.mat": {
+        "objects": 1560,
+        "features": 617
+    },
+    "pixraw10P.mat": {
+        "objects": 100,
+        "features": 10000
+    },
+    "lymphoma.mat": {
+        "objects": 96,
+        "features": 4026
+    },
+    "orlraws10P.mat": {
+        "objects": 100,
+        "features": 10304
+    },
+    "ORL.mat": {
+        "objects": 400,
+        "features": 1024
+    },
+    "SMK-CAN-187.mat": {
+        "objects": 187,
+        "features": 19993
+    },
+    "warpPIE10P.mat": {
+        "objects": 210,
+        "features": 2420
+    },
+    "TOX-171.mat": {
+        "objects": 171,
+        "features": 5748
+    },
+    "GLIOMA.mat": {
+        "objects": 50,
+        "features": 4434
+    },
+    "PCMAC.mat": {
+        "objects": 1943,
+        "features": 3289
+    },
+    "lung.mat": {
+        "objects": 203,
+        "features": 3312
+    },
+    "colon.mat": {
+        "objects": 62,
+        "features": 2000
+    },
+    "Carcinom.mat": {
+        "objects": 174,
+        "features": 9182
+    },
+    "Yale.mat": {
+        "objects": 165,
+        "features": 1024
+    },
+    "CLL-SUB-111.mat": {
+        "objects": 111,
+        "features": 11340
+    },
+    "warpAR10P.mat": {
+        "objects": 130,
+        "features": 2400
+    },
+    "lung_small.mat": {
+        "objects": 73,
+        "features": 325
+    },
+    "ALLAML.mat": {
+        "objects": 72,
+        "features": 7129
+    },
+    "Prostate-GE.mat": {
+        "objects": 102,
+        "features": 5966
+    },
+    "COIL20.mat": {
+        "objects": 1440,
+        "features": 1024
+    },
+    "RELATHE.mat": {
+        "objects": 1427,
+        "features": 4322
+    },
+    "BASEHOCK.mat": {
+        "objects": 1993,
+        "features": 4862
+    },
+    "GLI-85.mat": {
+        "objects": 85,
+        "features": 22283
+    }
+}

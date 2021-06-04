@@ -18,22 +18,38 @@ import json
 
 dataset_params = {}
 
+with open('results/real_world_dataset_params.json', 'r') as f:
+    real_world_dataset_params = json.load(f)
+    
+objects = []
+features = []
+
+for value in real_world_dataset_params.values():
+    objects.append(value['objects'])
+    features.append(value['features'])
+
+print(objects)
+print('\n\n\n', features)
+
 # the following parameters you can change yourself, with these
 # parameters I generated a few small test datasets
-min_features = 100
-max_features = 1000
+# min_features = 100
+# max_features = 1000
 
-min_samples = 100
-max_samples = 1000
+# min_samples = 100
+# max_samples = 1000
 
-step_size = 200
+# step_size = 200
 
-for n_features in range(step_size, max_features, step_size):
-    for n_samples in range(step_size, max_samples, step_size):
+# for n_features in range(step_size, max_features, step_size):
+#     for n_samples in range(step_size, max_samples, step_size):
+for n_samples, n_features in zip(objects, features):
+    # just to fill up
+    for _ in range(1):
         if n_samples * n_features > 10_000_000: # to avoid very big datasets. 
             break
         
-        dataset_name = 'DS' + str(n_samples) + 'x' + str(n_features)
+        dataset_name = 'DS' + str(n_samples) + 'x' + str(n_features) +'.mat'
         # generate a random number of informative features which is lower than 0.5*n_features
         n_informative = randint(2, int(n_features/2))
         # generate a random number of redundant features 
@@ -72,7 +88,7 @@ for n_features in range(step_size, max_features, step_size):
         # this must be done to allow analysis in experiment_config.py
         y = y[:, None]
 
-        scipy.io.savemat('small_synthetic_data/' + dataset_name +'.mat', {'X':X, 'Y':y})
+        scipy.io.savemat('mimick_data/' + dataset_name +'.mat', {'X':X, 'Y':y})
         dataset_params[dataset_name] = {'n_samples':n_samples, 'n_features':n_features, 'n_informative':n_informative, 
                                     'n_redundant':n_redundant, 'n_repeated':n_repeated, 'n_classes':n_classes, 
                                     'n_clusters_per_class':n_clusters_per_class, 'flip_y':flip_y, 'class_sep':class_sep}
@@ -80,7 +96,6 @@ for n_features in range(step_size, max_features, step_size):
         X, y = None, None
 
 # convert dictionary to json file and save it 
-with open('results/small_datasets_params.json', 'w') as fp:
+with open('results/mimick_data_params.json', 'w') as fp:
     json.dump(dataset_params, fp, indent=4)
-
-print('Written to JSON file.')
+    print('Written to JSON file.')
