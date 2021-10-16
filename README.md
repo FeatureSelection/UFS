@@ -1,4 +1,14 @@
 # UFS
+This repository contains the code associated to the paper "Runtime Prediction of Filter Unsupervised Feature Selection Methods" by Teun van der Weij, Venustiano Soancatl Aguilar, and Saúl Solorio-Fernández. 
+
+Feel free to reach out to mailvanteun@gmail.com if you have any problems running the code, or if you have a question about the repository or paper as a whole. 
+
+## Explanation
+The structure of this repository is as follows. 
+* src/experiment_files: This folder contains the code of the experiment. It does not contain the datasets as they are too large, you must create them yourself by using the make_datasets.py script. Each script contains information about how and when it should be used, starting by investigating experiment_config.py is advised. 
+* changed_files: this folder contains files that are needed to update the scikit-feature repository [https://github.com/jundongl/scikit-feature] to newer versions of python and related packages. See the Installation note further down. 
+* The other files contain other files which should be self-explanatory. However, it is noteworthy to state that we provide a dockerfile from which you can create an image and then execute the experiment in the container. Instructions are given below. 
+
 
 ## The docker container
 
@@ -22,6 +32,19 @@ than the above options.
 
 This docker file uses the 'datascience_notebook' from [Docker
 Stacks](https://github.com/jupyter/docker-stacks).
+
+## Installation note
+
+To run the experiment, change the files in scikit-feature as stated in the changed_files folder.
+In that folder you also find the directories of the files so it's easier to implement. 
+Note: it is easiest to first change the files and then install scikit-feature through the 
+command 'python setup.py install'. 
+
+After that, download the datasets available in the google drive and put them in the data folder. 
+The data folder can be found in the experiment_files folder. 
+
+The requirements are available in the requirements.txt file. 
+A docker container can be made with these requirements. 
 
 ### Building the image
 
@@ -47,45 +70,6 @@ docker run --name UFS --rm -p 8888:8888 -v "$PWD"/src/:/home/jovyan/work  jupyte
   `/home/jovyan/work/` folder in the container.  
 - `UFS` name of the container.
 
-### Working with the container
 
-#### Using jupyter notebook
 
-After running the container a link is displayed to access the notebook.
 
-```
-...
-http://127.0.0.1:8888/?token=4bd2d4d3f16958b4c084442941bf00e902b40ffd6ecc40a8
-```
-
-#### Useful commands
-
-- List docker images
-
-``` bash
-docker images
-```
-
-- running containers
-
-```
-docker ps
-```
-- 
-#### Executing commands in the container command line
-
-```bash
-docker exec -it UFS bash  
-```
-##Teun's branch.
-
-To run the experiment, change the files in scikit-feature as stated in the changed_files folder.
-In that folder you also find the directories of the files so it's easier to implement. 
-Note: it is easiest to first change the files and then install scikit-feature through the 
-command 'python setup.py install'. 
-
-After that, download the datasets available in the google drive and put them in the data folder. 
-The data folder can be found in the experiment_files folder. 
-
-The requirements are available in the requirements.txt file. 
-A docker container can be made with these requirements. 
