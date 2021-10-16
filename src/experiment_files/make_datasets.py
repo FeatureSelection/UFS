@@ -18,34 +18,18 @@ import json
 
 dataset_params = {}
 
-with open('results/real_world_dataset_params.json', 'r') as f:
-    real_world_dataset_params = json.load(f)
-    
-objects = []
-features = []
-
-for value in real_world_dataset_params.values():
-    objects.append(value['objects'])
-    features.append(value['features'])
-
-print(objects)
-print('\n\n\n', features)
-
 # the following parameters you can change yourself, with these
 # parameters I generated a few small test datasets
-# min_features = 100
-# max_features = 1000
+min_features = 100
+max_features = 1000
 
-# min_samples = 100
-# max_samples = 1000
+min_samples = 100
+max_samples = 1000
 
-# step_size = 200
+step_size = 200
 
-# for n_features in range(step_size, max_features, step_size):
-#     for n_samples in range(step_size, max_samples, step_size):
-for n_samples, n_features in zip(objects, features):
-    # just to fill up
-    for _ in range(1):
+for n_features in range(step_size, max_features, step_size):
+    for n_samples in range(step_size, max_samples, step_size):
         if n_samples * n_features > 10_000_000: # to avoid very big datasets. 
             break
         

@@ -1,4 +1,4 @@
-"""File that will run the experiment and store the results.
+"""File that runs the experiment and saves the results.
 """
 
 # importing necessary tools
@@ -145,15 +145,13 @@ def main():
         just before defining main()), an TookTooLong exception will be thrown.
         The results of nmi, acc, and runtime will be set to none and the script
         will continue at the next line. 
-
-        Nmi and acc are not used in this study, but they can be used to confirm 
-        whether a method properly analyzed a dataset. 
         """
 
         # first try to run it normally
         # NOTE: for some methods, we run it with unrequired params to improve readability
         try:     
             # construct a string with all the arguments that evaluated with built-in eval() function
+
             nmi, acc, runtime = eval('eval_' + method + '(X, y, num_clusters, num_features, W_kwargs)')
 
         # if it takes too long (set in handler()), set None to all three outputs
