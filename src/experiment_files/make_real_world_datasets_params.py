@@ -1,3 +1,7 @@
+""" This file constructs the dataset parameters
+    file which contains the number of objects and features of the real world dattasets. 
+"""
+
 import json 
 import numpy as np 
 import scipy.io

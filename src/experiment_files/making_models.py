@@ -1,11 +1,4 @@
 """ 
-NOTE: UDFS and NDFS still lack two results due to memory error
-
-NOTE: squared=False in sklearn.metrics.mean_squared_error
- to use RMSE
-
-NOTE: all the way below is to format table (rounding numbers etc)
-
 NOTE: This error:
   making_models.py:28: RuntimeWarning: overflow encountered in exp
   return b1 * np.exp(b2 * x1) + b3 * x2
@@ -105,6 +98,8 @@ def model_evaluation(methods):
 
             runtimes.append(runtime)
 
+        print(method, np.mean(runtimes), len(runtimes)) 
+
         # convert everything to numpy arrays
         objects = np.asarray(objects)        
         features = np.asarray(features)
@@ -177,8 +172,8 @@ def model_evaluation(methods):
             predicted = power_model((objects[lower:upper], features[lower:upper]), *p_opt)
             true = runtimes[lower:upper]
 
-            # squared = False for root_mean_squared_error
             MAE_folds.append(mean_absolute_error(true, predicted))
+            # squared = False for root_mean_squared_error
             RMSE_folds.append(mean_squared_error(true, predicted, squared=False))
 
         results[method]['power_model'].update({'MAE': MAE_folds})
@@ -248,12 +243,12 @@ def model_evaluation(methods):
 
         
     # have STOP here to not accidentally overwrite file
-    filename = 'STOP results/model_evaluation.json' 
+    # filename = 'STOP results/model_evaluation.json' 
 
-    with open(filename, 'w') as f:
-        json.dump(results, f, indent=4)
+    # with open(filename, 'w') as f:
+    #     json.dump(results, f, indent=4)
 
-        print('\n\nWritten to json file.')
+    #     print('\n\nWritten to json file.')
     return 
 
 def best_models(methods):
@@ -333,54 +328,19 @@ def best_models(methods):
             X = (features, objects)
             p_opt, p_cov = curve_fit(exponential_linear, X, runtimes, p0=[100, 0.001, 0.01], bounds=(0, np.inf), maxfev=5000)
             results['NDFS'].update({'exponential_linear_features':{'betas': p_opt.tolist() }})
-
-        elif method == 'UDFS':
-            X = (features, objects)
-            p_opt, p_cov = curve_fit(exponential_linear, X, runtimes, p0=[100, 0.001, 0.01], bounds=(0, np.inf), maxfev=5000)
-            results['UDFS'].update({'exponential_linear_features':{'betas': p_opt.tolist() }})
             
     # have STOP here to not accidentally overwrite file
-    filename = 'results/best_models.json'
+    filename = 'STOP results/best_models.json'
 
     with open(filename, 'w') as f:
         json.dump(results, f, indent=4)
         print('\n\nWritten to json file.')
     return 
 
-def real_world_scores(methods):
-    """ I think unused function. 
-    """
 
-    with open('results/real_world_dataset_params.json', 'r') as fp:
-        real_world_dataset_params = json.load(fp)   
-
-    with open('results/best_models.json', 'r') as fp:
-        best_models_params = json.load(fp)
-
-    results = {}
-
-    for method in methods:
-        
-        with open(f'results/real_world_results/{method}_real_world.json') as fp:
-            method_results = json.load(fp)[method]
-
-        runtimes = [] 
-        for dataset, outcome in method_results.items():
-            runtime = outcome['runtime']
-            if runtime == None:
-                print(f'{method} has no runtime value for {dataset}')
-                continue
-
-            runtimes.append(runtime)
-        
-        runtimes = np.asarray(runtimes)
-
-        
 methods = ['low_variance', 'lap_score', 'SPEC', 'MCFS', 'UDFS', 'NDFS']
 
-# model_evaluation(methods)
+model_evaluation(methods)
 
-best_models(methods)
-
-# real_world_scores(methods)
+# best_models(methods)
 

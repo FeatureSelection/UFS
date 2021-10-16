@@ -54,6 +54,9 @@ def plot_synthetic(methods, X_axis):
     Returns:
 
     Nothing, but saves a pdf of the plot in the specified directory.
+
+    NOTE: paper format had to be black and white, 
+        commented out is the original colour formatting. 
     """
 
     fig, axs = plt.subplots(3, 2, sharex=True, figsize=(8, 10))
@@ -61,7 +64,6 @@ def plot_synthetic(methods, X_axis):
     # get the parameters of the best models to show them on the synthetic plot
     with open('results/best_models.json', 'r') as fp:
         best_models_params = json.load(fp)
-
 
     # get the dataset parameters of the synthetic datasets 
     with open('results/synthetic_dataset_params.json', 'r') as fp:
@@ -103,13 +105,13 @@ def plot_synthetic(methods, X_axis):
         
         if X_axis == 'objects':
             features_sizes = [0.5 * x / 100 for x in features]
-            ax.scatter(objects, true_runtimes, s=features_sizes, label='True runtimes')
+            ax.scatter(objects, true_runtimes, s=features_sizes, label='True runtimes', edgecolors='black', facecolors='white', alpha=0.7)
             
             # add the predictions of the best model
             if method in ['lap_score', 'SPEC', 'MCFS']:
                 X = (objects, features)
                 p_opt = best_models_params[method]['power_model']['betas']
-                ax.scatter(objects, power_model(X, *p_opt), s=10, alpha=0.7, c='orange', marker='o', label='Power model prediction')
+                ax.scatter(objects, power_model(X, *p_opt), s=features_sizes, c='black', marker='s', label='Power model prediction', alpha=0.7)
                 
                 # get legend for one plot
                 if method == 'lap_score':
@@ -117,18 +119,23 @@ def plot_synthetic(methods, X_axis):
 
         if X_axis == 'features':
             objects_sizes = [0.5 * x / 100 for x in objects]
-            ax.scatter(features, true_runtimes, s=objects_sizes, label='True runtimes')
-            
+            # ax.scatter(features, true_runtimes, c='black', alpha=0.7, s=objects_sizes, label='True runtimes')
+            ax.scatter(objects, true_runtimes, s=objects_sizes, label='True runtimes', 
+                        edgecolors='black', facecolors='white', alpha=0.7)
+
             # add the predictions of the best model
             if method in ['UDFS', 'NDFS']:
                 X = (objects, features)
                 
                 p_opt = best_models_params[method]['power_model']['betas']
-                ax.scatter(features, power_model(X, *p_opt), s=objects_sizes, alpha=0.7, c='orange', marker='o', label='Power model prediction')
+                # ax.scatter(features, power_model(X, *p_opt), s=objects_sizes, alpha=0.7, c='#404040', marker='s', label='Power model prediction')
+                ax.scatter(objects, power_model(X, *p_opt), s=objects_sizes, c='black', 
+                            marker='s', label='Power model prediction', alpha=0.7)
 
                 X = (features, objects)
                 p_opt = best_models_params[method]['exponential_linear_features']['betas']
-                ax.scatter(features, exponential_linear(X, *p_opt), s=objects_sizes, alpha=0.7, c='red', marker='o', label='EL prediction')
+                ax.scatter(features, exponential_linear(X, *p_opt), s=objects_sizes, alpha=0.7, 
+                            marker='^', c='grey', label='EL prediction')
                 
                 if method == 'UDFS':
                     ax.legend()              
@@ -136,19 +143,22 @@ def plot_synthetic(methods, X_axis):
         elif X_axis == 'objects_x_features':
 
             objects_x_features = objects * features 
-            ax.scatter(objects_x_features, true_runtimes, s=5, label='Runtimes')
+            ax.scatter(objects_x_features, true_runtimes, edgecolors='black', 
+                    facecolors='white', alpha=0.7, s=10, label='True runtimes')
 
             if method == 'low_variance':
 
                 slope = best_models_params['low_variance']['slope']
                 ax.scatter(objects_x_features, slope * objects_x_features,
-                            alpha=0.7, c='orange', s=5, marker='o', label='Simple linear Regression prediction')
+                            alpha=0.7, c='grey', s=5, marker='v', label='Simple linear Regression prediction')
 
                 X = (objects, features)
                 p_opt = best_models_params[method]['power_model']['betas']
-                ax.scatter(objects_x_features, power_model(X, *p_opt), s=5, alpha=0.7, c='red', label='Power prediction')
-                ax.legend()         
+                # ax.scatter(objects_x_features, power_model(X, *p_opt), s=5, alpha=0.7, c='grey', marker='^', label='Power prediction')
+                ax.scatter(objects_x_features, power_model(X, *p_opt), s=5, c='black', marker='s', 
+                            label='Power model prediction', alpha=0.7)
 
+                ax.legend()         
 
     if X_axis == 'objects_x_features':
         fig.supxlabel('Data points')
@@ -157,8 +167,8 @@ def plot_synthetic(methods, X_axis):
 
     fig.supylabel('Runtime in seconds')
     fig.tight_layout()
-
-    fig.savefig(f"plots/synthetic_{X_axis}.pdf", bbox_inches='tight') 
+    
+    fig.savefig(f"plots/greyscale_synthetic_{X_axis}.pdf", bbox_inches='tight') 
     # plt.show()
 
 def plot_real_world(methods):
@@ -247,18 +257,19 @@ def plot_real_world(methods):
             ax.set_title('Low Variance')
 
             objects_x_features = objects * features
-            ax.scatter(objects_x_features, true_runtimes, s=5, label='True runtimes')
+            ax.scatter(objects_x_features, true_runtimes, s=5, label='True runtimes', edgecolors='black', facecolors='white', alpha=0.7)
             
             X = (objects, features)
             p_opt = best_models_params['low_variance']['power_model']['betas']
             
             predicted_runtimes_power = power_model(X, *p_opt)
-            ax.scatter(objects_x_features, predicted_runtimes_power, s=5, alpha=0.7, c='orange', marker='o', label='Power model')
+            ax.scatter(objects_x_features, predicted_runtimes_power, s=5,
+                         c='black', marker='s', label='Power model prediction', alpha=0.7)
 
             slope = best_models_params['low_variance']['slope']
             predicted_runtimes_lingress = slope*objects_x_features
-            ax.scatter(objects_x_features, predicted_runtimes_lingress, s=5, alpha=0.7, c='red', marker='o', label='Simple Regression')
-
+            ax.scatter(objects_x_features, predicted_runtimes_lingress,
+                            alpha=0.7, c='grey', s=5, marker='v', label='Simple linear Regression prediction')
             ax.set_xlabel('Data points')
             ax.legend()
 
@@ -274,13 +285,14 @@ def plot_real_world(methods):
         elif method == 'lap_score':
             ax.set_title('Laplacian Score')
 
-            ax.scatter(objects, true_runtimes, s=features_sizes, label='True runtimes')
-            
+            ax.scatter(objects, true_runtimes, s=features_sizes, label='True runtimes', edgecolors='black', facecolors='white', alpha=0.7)
+
             X = (objects, features)
             p_opt = best_models_params['lap_score']['power_model']['betas']
             predicted_runtimes_power = power_model(X, *p_opt)
 
-            ax.scatter(objects, predicted_runtimes_power, s=features_sizes, alpha=0.7, c='orange', marker='o', label='Power model')
+            ax.scatter(objects, predicted_runtimes_power, s=features_sizes, 
+                        c='black', marker='s', label='Power model prediction', alpha=0.7)
 
             ax.set_xlabel('Objects')
 
@@ -292,13 +304,14 @@ def plot_real_world(methods):
         elif method == 'SPEC':
             ax.set_title('SPEC')
 
-            ax.scatter(objects, true_runtimes, s=features_sizes, label='True runtimes')
-            
+            ax.scatter(objects, true_runtimes, s=features_sizes, label='True runtimes', edgecolors='black', facecolors='white', alpha=0.7)
+
             X = (objects, features)
             p_opt = best_models_params['SPEC']['power_model']['betas']
             predicted_runtimes_power = power_model(X, *p_opt)
 
-            ax.scatter(objects, predicted_runtimes_power, s=features_sizes, alpha=0.7, c='orange', marker='o', label='Power model prediction')
+            ax.scatter(objects, predicted_runtimes_power, s=features_sizes, 
+                        c='black', marker='s', label='Power model prediction', alpha=0.7)
 
             ax.set_xlabel('Objects')
 
@@ -310,13 +323,14 @@ def plot_real_world(methods):
         elif method == 'MCFS':
             ax.set_title('MCFS')
 
-            ax.scatter(objects, true_runtimes, s=features_sizes, label='True runtimes')
+            ax.scatter(objects, true_runtimes, s=features_sizes, label='True runtimes', edgecolors='black', facecolors='white', alpha=0.7)
             
             X = (objects, features)
             p_opt = best_models_params['MCFS']['power_model']['betas']
             predicted_runtimes_power = power_model(X, *p_opt)
 
-            ax.scatter(objects, predicted_runtimes_power, s=features_sizes, alpha=0.7, c='orange', marker='o', label='Power model prediction')
+            ax.scatter(objects, predicted_runtimes_power, s=features_sizes, 
+                        c='black', marker='s', label='Power model prediction', alpha=0.7)
 
             ax.set_xlabel('Objects')
 
@@ -328,18 +342,21 @@ def plot_real_world(methods):
         elif method == 'UDFS':
             ax.set_title('UDFS')
 
-            ax.scatter(features, true_runtimes, s=objects_sizes, label='True runtimes')
+            ax.scatter(features, true_runtimes, s=features_sizes, label='True runtimes', edgecolors='black', facecolors='white', alpha=0.7)
             
             X = (objects, features)
             p_opt = best_models_params['UDFS']['power_model']['betas']
             predicted_runtimes_power = power_model(X, *p_opt)
-            ax.scatter(features, predicted_runtimes_power, s=objects_sizes, alpha=0.7, c='orange', marker='o', label='Power model prediction')
+            ax.scatter(features, predicted_runtimes_power, s=objects_sizes, 
+                        c='black', marker='s', label='Power model prediction', alpha=0.7)
 
             X = (features, objects)
             p_opt = best_models_params[method]['exponential_linear_features']['betas']
             predicted_runtimes_EL = exponential_linear(X, *p_opt)
+            
+            ax.scatter(features, predicted_runtimes_EL, s=objects_sizes, alpha=0.7, 
+                            marker='^', c='grey', label='EL prediction')
 
-            ax.scatter(features, predicted_runtimes_EL, s=objects_sizes, alpha=0.7, c='red', marker='o', label='EL prediction')
             ax.legend()
             ax.set_xlabel('Features')
 
@@ -354,19 +371,21 @@ def plot_real_world(methods):
 
         elif method == 'NDFS':
             ax.set_title('NDFS')
-            ax.scatter(features, true_runtimes, s=objects_sizes, label='True runtimes')
+            ax.scatter(features, true_runtimes, s=features_sizes, label='True runtimes', edgecolors='black', facecolors='white', alpha=0.7)
             
             X = (objects, features)
             p_opt = best_models_params['NDFS']['power_model']['betas']
             predicted_runtimes_power = power_model(X, *p_opt)
-            ax.scatter(features, predicted_runtimes_power, s=objects_sizes, alpha=0.7, c='orange', marker='o', label='Power model prediction')
+            ax.scatter(features, predicted_runtimes_power, s=objects_sizes, 
+                        c='black', marker='s', label='Power model prediction', alpha=0.7)
 
             X = (features, objects)
             p_opt = best_models_params[method]['exponential_linear_features']['betas']
             predicted_runtimes_EL = exponential_linear(X, *p_opt)
 
-            # ax.scatter(features, predicted_runtimes_EL, s=10, alpha=0.7, c='orange', label='EL prediction')
-            ax.scatter(features, predicted_runtimes_EL, s=objects_sizes, alpha=0.7, c='red', marker='o', label='EL prediction')
+            ax.scatter(features, predicted_runtimes_EL, s=objects_sizes, alpha=0.7, 
+                            marker='^', c='grey')
+                            
             ax.set_xlabel('Features')
 
             # save error scores to put in table
@@ -382,17 +401,22 @@ def plot_real_world(methods):
     # fig.legend()
     fig.tight_layout()
 
-    fig.savefig(f"plots/real_world_plot.pdf", bbox_inches='tight') 
-    # plt.show()
+    # suggestion: plt.savefig(file.jpeg, edgecolor='black', dpi=400, facecolor='black', transparent=True) 
+    fig.savefig(f"plots/greyscale_real_world_plot.pdf", bbox_inches='tight') 
+    # plt.show() #the pdf does not have overlapping text with bbx_inches = 'tight', so saved pdf is better than plt.show()
 
+    # uncomment this is if you want to save the real world scores
     # filename = 'results/real_world_scores.json'
 
     # with open(filename, 'w') as fp:
     #     json.dump(best_model_eval, fp, indent=4)
 
-algos = ['low_variance', 'lap_score', 'SPEC', 'MCFS', 'UDFS', 'NDFS']
-plot_synthetic(algos, 'objects')
-plot_synthetic(algos, 'features')
-plot_synthetic(algos, 'objects_x_features')
+methods = ['low_variance', 'lap_score', 'SPEC', 'MCFS', 'UDFS', 'NDFS']
 
-plot_real_world(algos)
+## Commented out so it does not run automatically. 
+# plot_synthetic(methods, 'objects')
+# plot_synthetic(methods, 'features')
+# plot_synthetic(methods, 'objects_x_features')
+
+# plot_real_world(methods)
+
