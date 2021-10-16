@@ -1,7 +1,7 @@
 # UFS
 This repository contains the code associated to the paper "Runtime Prediction of Filter Unsupervised Feature Selection Methods" by Teun van der Weij, Venustiano Soancatl Aguilar, and Saúl Solorio-Fernández. 
 
-Feel free to reach out to mailvanteun@gmail.com if you have any problems running the code, or if you have a question about the repository or paper as a whole. 
+Feel free to reach out to mailvanteun@gmail.com if you have any problems running the code, or if you have a question about the repository or paper as a whole. Lastly, if you have any suggestion to improve this repository, create an issue or send an email if that's more applicable. 
 
 ## Explanation
 The structure of this repository is as follows. 
